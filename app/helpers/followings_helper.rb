@@ -1,4 +1,4 @@
-module FollowingHelper
+module FollowingsHelper
   def nu_display(current_user, n_user)
     return unless n_user != current_user
 
