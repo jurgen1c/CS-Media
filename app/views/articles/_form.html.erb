@@ -4,6 +4,10 @@
   <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <div class="form-inputs">
+    <%= f.text_field :title, placeholder: 'Add Title' %> 
+  </div>
+  <div class="form-inputs">
+    <%= f.rich_text_area :content, placeholder: 'Add content' %> 
   </div>
 
   <div class="form-actions">
