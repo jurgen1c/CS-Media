@@ -11,14 +11,34 @@
     <%= f.label :content%>
     <%= f.rich_text_area :content, placeholder: 'Add content' %> 
   </div>
+  <div class="form-inputs">
+    <%= f.label :images%>
+    <%= f.file_field :images%>    
+  </div>
   <div>
+    <h3>Article Sources</h3>
     <%= f.simple_fields_for :source do |s| %>
-      <%= s.text_field :title %>
-      <%= s.rich_text_area :description %>
-    <%= end %>
+      <%= s.error_notification %>
+      <%= s.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+      <div class="form-inputs">
+        <%= s.label :title%>
+        <%= s.text_field :title %>
+      </div>
+      <div class="form-inputs">
+        <%= s.label :description %>
+        <%= s.rich_text_area :description %>
+      </div>
+      <div class="form-inputs">
+        <%= f.label :files%>
+        <%= f.file_field :files%>  
+      </div>
+      <div class="form-actions">
+        <%= s.button :submit %>
+      </div>
+    <% end %>
   </div>
 
   <div class="form-actions">
-    <%= f.button :submit %>
+    <%= f.button :submit, class: "btn btn-primary" %>
   </div>
 <% end %>
