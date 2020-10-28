@@ -7,7 +7,6 @@ class Article < ApplicationRecord
   has_many :reviewers, through: :reviews, dependent: :destroy
   has_many :sources
   has_many :comments
-  has_many_attached :images
   has_rich_text :content
   accepts_nested_attributes_for :sources
 end

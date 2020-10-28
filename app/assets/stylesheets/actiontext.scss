@@ -8,7 +8,6 @@
 // We need to override trix.css’s image gallery styles to accommodate the
 // <action-text-attachment> element we wrap around attachments. Otherwise,
 // images in galleries will be squished by the max-width: 33%; rule.
-@import "trix/dist/trix";
 .trix-content {
   .attachment-gallery {
     > action-text-attachment,
@@ -33,5 +32,10 @@
       padding: 0 !important;
       max-width: 100% !important;
     }
+  }
+}
+trix-editor {
+  &.form-control {
+    height: auto;
   }
 }

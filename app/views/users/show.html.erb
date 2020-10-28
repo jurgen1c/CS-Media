@@ -1,1 +1,9 @@
 <%= @user %>
+
+<div class="form-inputs">
+    <%= f.label :category%>
+    <%= f.select :type_id, Type.all.map {|c| c.name, c.id } %> 
+  </div>
+  
+
+  
