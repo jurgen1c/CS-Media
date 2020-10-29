@@ -6,11 +6,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    timeline_arts
   end
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :username, :email, :password, :avatar)
+  def timeline_arts
+    @timeline_arts ||= Article.all.ordered_by_most_recent.includes(:user)
   end
 end

@@ -9,4 +9,6 @@ class Article < ApplicationRecord
   has_many :comments
   has_rich_text :content
   accepts_nested_attributes_for :sources
+
+  scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 end

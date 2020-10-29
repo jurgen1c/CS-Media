@@ -1,4 +1,9 @@
 class TypesController < ApplicationController
+
+  def index
+    @types = Type.all
+  end
+  
   def new
     @type = Type.new
   end
