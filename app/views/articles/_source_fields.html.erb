@@ -1,0 +1,14 @@
+<div class="nested-fields">
+  <%= f.hidden_field :_destroy %>
+  <div class="field">
+    <%= f.label :title%>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %>
+    <%= f.rich_text_area :body %>
+  </div>
+  <div>
+    <%= link_to 'Remove', '#', class: 'remove_fields'%>
+  </div>
+</div>

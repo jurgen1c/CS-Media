@@ -4,8 +4,9 @@
   <%= @article.title %>
   <%= @article.body%>
 </div>
-<div>
-  <%=@article.sources %>
+<div class="p-5 m-3">
+  <%=@article.sources.first.title %>
+  <%=@article.sources.first.body %>
 </div>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">

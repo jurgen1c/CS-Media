@@ -1,5 +1,5 @@
 <div class="art-form mx-auto p-5">
-  <%= form_with model: @article do |f| %>
+  <%= form_with model: @article, local: true do |f| %>
     <%= display_errors(article) %>
     <div class="field">
       <%= f.label :title %>
@@ -7,7 +7,7 @@
     </div>
     <div class="field">
       <%= f.label :type %>
-      <%= f.select :type_id, Type.all.map {|c| [c.name, c.id] }%>
+      <%= f.select :type_id, Type.all.map {|c| c.id} %>
     </div>
     <div class="field">
       <%= f.label :body%>
@@ -15,17 +15,10 @@
     </div>
     <div>
       <h3>Article Sources</h3>
-      <%= f.fields_for :sources do |s| %>
-        
-        <div class="field">
-          <%= s.label :title%>
-          <%= s.text_field :title %>
-        </div>
-        <div class="field">
-          <%= s.label :body %>
-          <%= s.rich_text_area :body %>
-        </div>
+      <%= f.fields_for :sources do |sources_form| %>
+        <%= render 'source_fields', f: sources_form %>
       <% end %>
+      <%= link_to_add_fields 'Add Source', f, :sources %>
     </div>
     <div class="form-actions">
       <%= f.button :submit, class: "btn btn-primary" %>
