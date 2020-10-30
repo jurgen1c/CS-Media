@@ -1,26 +1,29 @@
 <div class="art-form mx-auto p-5">
-  <%= simple_form_for(@article) do |f| %>
+  <%= form_with model: @article do |f| %>
     <%= display_errors(article) %>
-    <div class="form-inputs">
+    <div class="field">
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: 'Add Title' %> 
     </div>
-    <div>
-      <%= f.label :content%>
-      <%= f.rich_text_area :content, placeholder: 'Add content' %> 
+    <div class="field">
+      <%= f.label :type %>
+      <%= f.select :type_id, Type.all.map {|c| [c.name, c.id] }%>
+    </div>
+    <div class="field">
+      <%= f.label :body%>
+      <%= f.rich_text_area :body, placeholder: 'Add content' %> 
     </div>
     <div>
       <h3>Article Sources</h3>
-      <%= f.simple_fields_for :source do |s| %>
-        <%= s.error_notification %>
-        <%= s.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
-        <div class="form-inputs">
+      <%= f.fields_for :sources do |s| %>
+        
+        <div class="field">
           <%= s.label :title%>
           <%= s.text_field :title %>
         </div>
-        <div>
-          <%= s.label :description %>
-          <%= s.rich_text_area :description %>
+        <div class="field">
+          <%= s.label :body %>
+          <%= s.rich_text_area :body %>
         </div>
       <% end %>
     </div>

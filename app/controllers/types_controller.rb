@@ -11,7 +11,7 @@ class TypesController < ApplicationController
   def create
     type = Type.new(type_params)
     if type.save
-      flash[:success] = "Object successfully created"
+      flash[:success] = "Type successfully created"
       redirect_to type
     else
       flash[:error] = "Something went wrong"
@@ -36,7 +36,7 @@ class TypesController < ApplicationController
   end
 
   def type_params
-    params.require(:review).permit(:name)
+    params.require(:review).permit(:name, :cover)
   end
   
 end

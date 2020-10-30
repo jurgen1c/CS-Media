@@ -1,4 +1,4 @@
-class SourceController < ApplicationController
+class SourcesController < ApplicationController
   before_action :set_source, only: [:show, :edit, :update, :destroy]
 
   def new
@@ -6,7 +6,7 @@ class SourceController < ApplicationController
   end
   
   def create
-    @source = Source.new(source_params)
+    @source = Source.create(source_params)
     if @source.save
       flash[:success] = "Object successfully created"
       redirect_to @source
@@ -33,6 +33,6 @@ class SourceController < ApplicationController
     @source = Source.find(params[:id])
   end
   def source_params
-    params.require(:source).permit(:title, :description)
+    params.require(:source).permit(:title, :body)
   end
 end

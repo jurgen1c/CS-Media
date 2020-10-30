@@ -7,6 +7,7 @@ class User < ApplicationRecord
   validates :email, :password, presence: true
 
   has_one_attached :avatar
+  has_many :articles, dependent: :destroy
   has_many :followings, dependent: :destroy
   has_many :inverse_followings, class_name: 'Following', foreign_key: 'follow_id', dependent: :destroy
 

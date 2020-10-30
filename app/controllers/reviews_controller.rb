@@ -1,12 +1,12 @@
-class ReviewController < ApplicationController
+class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
 
   def new
-    @review = Review.new
+    @review = current_user.reviews.build
   end
   
   def create
-    @review = Review.new(params[:review])
+    @review = current_user.reviews.build(params[:review])
     if @review.save
       flash[:success] = "Object successfully created"
       redirect_to @review
@@ -34,7 +34,7 @@ class ReviewController < ApplicationController
   end
 
   def review_params
-    params.reuire(:review).permit(:title, :content)
+    params.reuire(:review).permit(:title, :body)
   end
   
 end
