@@ -7,7 +7,7 @@ class Article < ApplicationRecord
   has_many :comments
   has_rich_text :body
   accepts_nested_attributes_for :sources, allow_destroy: true
-  validates_associated :sources, presence: true
+# validates_associated :sources, presence: true
   validates :title, :body, presence: true
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }

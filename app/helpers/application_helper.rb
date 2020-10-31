@@ -1,4 +1,12 @@
 module ApplicationHelper
+
+  def flash_message
+    if flash[:notice]
+      content_tag :p, notice, class: 'bg-success m-0 text-white text-center'
+    elsif flash[:alert]
+      content_tag :p, alert, class: 'bg-danger m-0 text-white text-center'
+    end
+  end
   
   def link_to_add_fields(name, f, association)
     new_object = f.object.send(association).klass.new

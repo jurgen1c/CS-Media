@@ -11,6 +11,7 @@
   </head>
 
   <body>
+    <div id="flash"><%= flash_message%></div>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <%= link_to 'CS Media', root_path, class: "navbar-brand p-2"%>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,8 +41,6 @@
         </ul>
       </div>
     </nav>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
     <%= yield %>
   </body>
 </html>

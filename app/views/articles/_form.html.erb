@@ -7,19 +7,19 @@
     </div>
     <div class="field">
       <%= f.label :type %>
-      <%= f.select :type_id, Type.all.map {|c| c.id} %>
+      <%= f.select :type_id, Type.all.map {|c| [c.name, c.id]} %>
     </div>
     <div class="field">
       <%= f.label :body%>
       <%= f.rich_text_area :body, placeholder: 'Add content' %> 
     </div>
-    <div>
-      <h3>Article Sources</h3>
+    <fieldset>
+      <legend>Article Sources:</legend>
       <%= f.fields_for :sources do |sources_form| %>
-        <%= render 'source_fields', f: sources_form %>
+        <%= render "source_fields", f: sources_form %>
       <% end %>
-      <%= link_to_add_fields 'Add Source', f, :sources %>
-    </div>
+      <%= link_to_add_fields "Add Sources", f, :sources %>
+    </fieldset>
     <div class="form-actions">
       <%= f.button :submit, class: "btn btn-primary" %>
     </div>

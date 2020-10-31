@@ -1,4 +1,5 @@
 class addFields {
+
   constructor() {
     this.links = document.querySelectorAll('.add_fields')
     this.iterateLinks()
@@ -14,7 +15,7 @@ class addFields {
     })
   }
 
-  handleClick() {
+  handleClick(link, e) {
     if(!link || !e) return
 
     e.preventDefault()
