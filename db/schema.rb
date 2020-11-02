@@ -119,8 +119,6 @@ ActiveRecord::Schema.define(version: 2020_10_27_193322) do
   create_table "votes", force: :cascade do |t|
     t.bigint "user_id"
     t.bigint "article_id"
-    t.boolean "up_vote"
-    t.boolean "down_vote"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_votes_on_article_id"

@@ -11,36 +11,64 @@
   </head>
 
   <body>
-    <div id="flash"><%= flash_message%></div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <%= link_to 'CS Media', root_path, class: "navbar-brand p-2"%>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
+    <header>
+      <div id="flash"><%= flash_message%></div>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <%= link_to 'CS Media', root_path, class: "navbar-brand p-2"%>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-      <div class="collapse navbar-collapse p-1" id="navbarSupportedContent">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <%= link_to 'Timeline', articles_path, class: "nav-link" %>
-          </li>
-          <% if current_user %>
+        <div class="collapse navbar-collapse p-1" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <%= link_to 'Create Article', articles_path, class: "nav-link" %>
+              <%= link_to 'Timeline', articles_path, class: "nav-link" %>
             </li>
-            <li class="nav-item">
-              <%= link_to "#{current_user.name.capitalize}", user_path(current_user.id), class: "nav-link"%>
-            </li>
-            <li class="nav-item">
-              <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
-            </li>
-          <% else %>
-            <li class="nav-item">
-              <%= link_to 'Sign in', user_session_path, class: "nav-link" %>
-            </li>
-          <% end %>
-        </ul>
+            <% if current_user %>
+              <li class="nav-item">
+                <%= link_to 'Create Article', new_article_path, class: 'nav-link' %>
+              </li>
+              <li class="nav-item">
+                <%= link_to "#{current_user.name.capitalize}", user_path(current_user.id), class: "nav-link"%>
+              </li>
+              <li class="nav-item">
+                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              </li>
+            <% else %>
+              <li class="nav-item">
+                <%= link_to 'Sign in', user_session_path, class: "nav-link" %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>
+      <div>
+        <%= link_to 'CS Media', root_path, class: "p-2"%>
       </div>
-    </nav>
-    <%= yield %>
+      <nav>
+        <ul class="nav">
+          <li class="nav-item">
+            <a class="nav-link active" href="#!">Active</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#!">Link</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link disabled" href="#!">Disabled</a>
+          </li>
+        </ul>
+      </nav>
+      <div>
+        <p>Connect with us:</p>
+        <i></i>
+        <i></i>
+        <i></i>
+      </div>
+    </footer>
   </body>
 </html>

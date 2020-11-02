@@ -11,7 +11,7 @@ module FollowingsHelper
       content_tag(:td, (link_to 'Unfollow', followings_path(id: following.id), method: :delete))
     else
       content_tag(:td, (link_to 'Follow', followings_path(confirmed: false, user_id: current_user.id,
-                                                               follow_id: n_user.id), method: :post))
+                                                          follow_id: n_user.id), method: :post))
     end
   end
 

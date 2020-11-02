@@ -1,15 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: [:show, :edit, :update, :destroy]
-
-  def new
-    @review = current_user.reviews.build
-  end
   
   def create
-    @review = current_user.reviews.build(params[:review])
+    @review = Review.new(review_params)
+    @review.article_id = params[:article_id]
+    @review.user = current_user
     if @review.save
       flash[:success] = "Object successfully created"
-      redirect_to @review
+      redirect_to article_path(@review.article_id)
     else
       flash[:error] = "Something went wrong"
       render 'new'
@@ -17,24 +15,23 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
-    @review = Review.find(params[:id])
+    @review = Review.find_by(article_id: params[:id])
     if @review.destroy
       flash[:success] = 'Object was successfully deleted.'
-      redirect_to reviews_url
+      redirect_to article_path(@review.article_id)
     else
       flash[:error] = 'Something went wrong'
-      redirect_to reviews_url
     end
   end
   
   private
 
   def set_review
-  
+    
   end
 
   def review_params
-    params.reuire(:review).permit(:title, :body)
+    params.require(:review).permit(:title, :body)
   end
   
 end

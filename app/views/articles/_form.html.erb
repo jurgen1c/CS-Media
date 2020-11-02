@@ -1,9 +1,13 @@
-<div class="art-form mx-auto p-5">
+<div class="art-form mx-auto p-3">
   <%= form_with model: @article, local: true do |f| %>
-    <%= display_errors(article) %>
+    <%= display_errors(@article) %>
     <div class="field">
       <%= f.label :title %>
       <%= f.text_field :title, placeholder: 'Add Title' %> 
+    </div>
+    <div class="field">
+      <%= f.label :cover %>
+      <%= f.file_field :cover, placeholder: 'Add Cover' %> 
     </div>
     <div class="field">
       <%= f.label :type %>
@@ -13,13 +17,15 @@
       <%= f.label :body%>
       <%= f.rich_text_area :body, placeholder: 'Add content' %> 
     </div>
+    <hr>
     <fieldset>
       <legend>Article Sources:</legend>
       <%= f.fields_for :sources do |sources_form| %>
-        <%= render "source_fields", f: sources_form %>
+        <!--<%= render "source_fields", f: sources_form %>-->
       <% end %>
       <%= link_to_add_fields "Add Sources", f, :sources %>
     </fieldset>
+    <hr>
     <div class="form-actions">
       <%= f.button :submit, class: "btn btn-primary" %>
     </div>

@@ -1,11 +1,11 @@
 class VotesController
   
   def new
-    @vote = Vote.new
+    @vote = current_user.votes.build
   end
 
   def create
-    @vote = Vote.new(params[:vote])
+    @vote = current_user.votes.build(article_id: params[:article_id])
     if @vote.save
       flash[:success] = "Object successfully created"
       redirect_to @vote
@@ -16,20 +16,12 @@ class VotesController
   end
   
   def destroy
-    @vote = Vote.find(params[:id])
-    if @vote.destroy
-      flash[:success] = 'Object was successfully deleted.'
-      redirect_to votes_url
+    @vote = Like.find_by(id: params[:id], user: current_user, article_id: params[:article_id])
+    if @vote
+      @vote.destroy
+      redirect_to posts_path, notice: 'You disliked a post.'
     else
-      flash[:error] = 'Something went wrong'
-      redirect_to votes_url
+      redirect_to posts_path, alert: 'You cannot dislike post that you did not like before.'
     end
   end
-
-  private
-
-  def vote_params
-    params.require(:vote).permit(:up_vote, :down_vote)
-  end
-  
 end

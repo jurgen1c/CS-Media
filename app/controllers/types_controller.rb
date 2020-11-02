@@ -2,6 +2,14 @@ class TypesController < ApplicationController
 
   def index
     @types = Type.all
+    @articles = Article.all
+    @sports = Type.find_by(name: 'Sports')
+    @entertainment = Type.find_by(name: 'Entertainment')
+    @travel = Type.find_by(name: 'Travel')
+    @politics = Type.find_by(name: 'Politics')
+    @tech = Type.find_by(name: 'Tech')
+    @business = Type.find_by(name: 'Business')
+    @fashion = Type.find_by(name: 'Fashion')
   end
   
   def new
@@ -32,11 +40,11 @@ class TypesController < ApplicationController
   
   private
 
-  def set_review
+  def set_type
   end
 
   def type_params
-    params.require(:review).permit(:name, :cover)
+    params.require(:review).permit(:name)
   end
   
 end
