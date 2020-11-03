@@ -24,6 +24,9 @@
         <!--<%= render "source_fields", f: sources_form %>-->
       <% end %>
       <%= link_to_add_fields "Add Sources", f, :sources %>
+      <div>
+        <%= link_to "Remove", '#', class: "remove_fields btn btn-danger"%>
+      </div>
     </fieldset>
     <hr>
     <div class="form-actions">

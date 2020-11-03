@@ -1,10 +1,10 @@
 module VotesHelper
   def vote_or_dislike_btn(article)
-    vote = Vote.find_by(article: article, user: current_user)
+    vote = Vote.find_by(article: article, voter: current_user)
     if vote
-      link_to('Down Vote', post_like_path(id: like.id, post_id: post.id), method: :delete)
+      link_to('Down Vote', article_vote_path(id: vote.id, article_id: article.id), method: :delete)
     else
-      link_to('Up Vote', post_likes_path(post_id: post.id), method: :post)
+      link_to('Up Vote', article_votes_path(article_id: article.id, user_id: current_user.id), method: :post)
     end
   end
 end

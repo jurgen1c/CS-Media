@@ -1,4 +1,17 @@
-<%= @user %>
-  
+<%= @user.name %>
+<%= @user.username %>
+<br>
+<% @user.follows.each do |follow| %>
+  <%= follow.name%>
+  <%= follow.username%>
+  <%= nu_display(current_user, follow)%>
+<%end%>
+<br>
+<% @user.articles.each do |article| %> 
+  <%= article.title %>
+  <%= article.cover %>
+  <hr>
+  <%= article.body %>
+<%end%>
 
   

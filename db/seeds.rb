@@ -15,3 +15,7 @@ Type.create(name: 'Fashion')
 Type.create(name: 'Travel')
 
 User.create(name: 'Sanad', username: 'Sandoog', email: 'sanad@sandoog.com', password: '123456')
+User.create(name: 'Obama', username: 'Obamama', email: 'obama@obamama.com', password: '654321')
+
+
+Article.create(title:'test', user_id:'1', type_id: '2')

@@ -1,27 +1,21 @@
-class VotesController
-  
-  def new
-    @vote = current_user.votes.build
-  end
+class VotesController < ApplicationController
 
   def create
-    @vote = current_user.votes.build(article_id: params[:article_id])
+    @vote = current_user.votes.new(article_id: params[:article_id])
     if @vote.save
-      flash[:success] = "Object successfully created"
-      redirect_to @vote
+      redirect_to root_path, notice: 'You Upvoted Article'
     else
-      flash[:error] = "Something went wrong"
-      render 'new'
+      redirect_to root_path, notice: 'You can not Upvote this article'
     end
   end
   
   def destroy
-    @vote = Like.find_by(id: params[:id], user: current_user, article_id: params[:article_id])
+    @vote = Vote.find_by(user_id: current_user.id, article_id: params[:article_id])
     if @vote
       @vote.destroy
-      redirect_to posts_path, notice: 'You disliked a post.'
+      redirect_to root_path, notice: 'You Downvoted a Article.'
     else
-      redirect_to posts_path, alert: 'You cannot dislike post that you did not like before.'
+      redirect_to root_path, alert: 'You cannot Downvote post that you did not Upvote before.'
     end
   end
 end

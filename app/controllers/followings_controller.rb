@@ -20,13 +20,9 @@ class FollowingsController < ApplicationController
     @following = Following.find(params[:id])
     if @following.destroy
       flash[:success] = 'Object was successfully deleted.'
-      redirect_to user_path(params[:user_id])
+      redirect_to users_path
     else
       flash[:error] = 'Something went wrong'
-      redirect_to followings_url
     end
   end
-  
-  
-  
 end
