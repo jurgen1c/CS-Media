@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_one_attached :avatar
   has_many :reviews
   has_many :votes
+  has_many :comments
   has_many :articles, dependent: :destroy
   has_many :followings, dependent: :destroy
   has_many :inverse_followings, class_name: 'Following', foreign_key: 'follow_id', dependent: :destroy

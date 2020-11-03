@@ -4,8 +4,6 @@
     <a class="btn btn-primary">
       <%= link_to 'See Profile', user_path(user), class: 'profile-link'%>
     </a>
-    <a class="btn btn-succes">
-      <%= nu_display(current_user, user)%>
-    </a>
+    <%= nu_display(current_user, user)%>
   </div>
 </li>

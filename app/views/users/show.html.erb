@@ -9,6 +9,8 @@
 <br>
 <% @user.articles.each do |article| %> 
   <%= article.title %>
+  <%= article.votes.count %>
+  <br>
   <%= article.cover %>
   <hr>
   <%= article.body %>

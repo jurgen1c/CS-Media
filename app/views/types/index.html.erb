@@ -45,7 +45,7 @@
           <div class="col-4">
             <%@sports.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
                 <br>
                 <%= article.body %>
@@ -62,7 +62,7 @@
           <div class="col-4">
             <%@entertainment.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
                 <br>
                 <%= article.body %>
@@ -79,7 +79,7 @@
           <div class="col-4">
             <%@travel.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
                 <br>
                 <%= article.body %>
@@ -96,8 +96,9 @@
           <div class="col-4">
             <%@politics.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
+                <%= link_to 'Show', article %>
                 <br>
                 <%= article.body %>
               </div>
@@ -113,7 +114,7 @@
           <div class="col-4">
             <%@tech.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
                 <br>
                 <%= article.body %>
@@ -130,7 +131,7 @@
           <div class="col-4">
             <%@business.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
                 <br>
                 <%= article.body %>
@@ -147,7 +148,7 @@
           <div class="col-4">
             <%@fashion.articles.each do |article|%>
               <div>
-                <%= article.title %>
+                <%= link_to article.title, article %>
                 <%= vote_or_dislike_btn(article) %>
                 <br>
                 <%= article.body %>

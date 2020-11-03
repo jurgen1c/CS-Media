@@ -3,5 +3,5 @@ class Review < ApplicationRecord
   belongs_to :article
   has_rich_text :body
 
-  validates :title, :body, :user, :article, presence: true
+  validates :title, :body, :reviewer, :article, presence: true
 end

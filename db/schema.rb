@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 2020_10_27_193322) do
     t.bigint "user_id"
     t.bigint "type_id"
     t.string "title"
+    t.integer "views", default: 0
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["type_id"], name: "index_articles_on_type_id"

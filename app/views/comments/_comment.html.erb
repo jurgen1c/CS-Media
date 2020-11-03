@@ -3,5 +3,5 @@
     <b><%= comment.user.name %>:</b> <%= comment.content %>
   </p>
   <span> <%= comment.created_at.strftime("%Y/%m/%d") %> </span>
-  <%= link_to 'Destroy', article_comment_path(comment), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= com_options(comment) %>
 </div>

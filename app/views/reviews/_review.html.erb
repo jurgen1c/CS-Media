@@ -1,10 +1,10 @@
 <div class="art-reviews">
   <p>
-    <%= review.user.name %>
+    <%= review.reviewer.name %>
     <br>
     <%= review.body %>
   </p>
   <span> <%= review.created_at.strftime("%Y/%m/%d") %> </span>
   <hr>
-  <%= link_to 'Destroy', article_review_path(review), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <%= rev_options(review) %>
 </div>
