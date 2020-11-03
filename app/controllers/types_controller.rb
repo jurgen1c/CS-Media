@@ -12,6 +12,13 @@ class TypesController < ApplicationController
     @business = Type.find_by(name: 'Business')
     @fashion = Type.find_by(name: 'Fashion')
   end
+
+  def show
+  end
+  
+  def search
+    @articles = Article.where("title LIKE ?", "%" + params[:q] + "%")
+  end
   
   def new
     @type = Type.new

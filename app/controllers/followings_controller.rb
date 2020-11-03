@@ -9,7 +9,7 @@ class FollowingsController < ApplicationController
     @following = Following.new(user_id: params[:user_id], follow_id: params[:follow_id])
     if @following.save
       flash[:success] = "Object successfully created"
-      redirect_to article_path(params[:article_id])
+      redirect_to users_path
     else
       flash[:error] = "Something went wrong"
       render 'new'
