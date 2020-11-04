@@ -11,6 +11,27 @@ class Article < ApplicationRecord
   accepts_nested_attributes_for :sources, allow_destroy: true
   validates_associated :sources, on: :create
   validates :title, :body, presence: true
+  after_commit :add_default_cover, on: %i[create update]
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
+
+  def cover_thumbnail
+    avatar.variant(resize: "200X400!").processed
+  end
+
+  private
+
+  def add_default_cover
+    unless cover.attached?
+      cover.attach(
+        io: File.open(
+          Rails.root.join(
+            'app', 'assets', 'images', 'covers', 'default_cover.jpg'
+          )
+        ), 
+        filename: 'default_cover.jpg',
+        content_type: 'image/jpg'
+      )
+    end
+  end
 end

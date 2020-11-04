@@ -17,6 +17,21 @@ Type.create(name: 'Travel')
 User.create(name: 'Sanad', username: 'Sandoog', email: 'sanad@sandoog.com', password: '123456', password_confirmation: '123456')
 User.create(name: 'Obama', username: 'Obamama', email: 'obama@obamama.com', password: '654321', password_confirmation: '654321')
 
+10.times do |_i|
+  User.create!(
+    name: Faker::Name.name,
+    username: Faker::Internet.unique.username,
+    email: Faker::Internet.unique.email,
+    password: 'password',
+    password_confirmation: 'password'
+    )
+end
+
+Following.create(user_id: 1, follow_id: 2)
+Following.create(user_id: 2, follow_id: 1)
+Following.create(user_id: 3, follow_id: 1)
+Following.create(user_id: 4, follow_id: 1)
+Following.create(user_id: 5, follow_id: 1)
 
 Article.create(
   title:'test', 
@@ -32,22 +47,10 @@ Article.create(
     ] 
   )
 
-=begin 
-e1 = Exhibit.create(
-title: 'TITLE', 
-author:  'PICASOO',
-date_of_origin: '300', 
-description: 'LOREM IPSUM', 
-ex_id: '1',
-type: nil,
-questions_attributes: [
-  { 
-     content: 'Q1',
-     answers_attributes: [
-       {content: "A1", correct: false},
-       {content: "A2", correct: true}
-     ]
-   }
- ]
-) 
-=end
+2.times do |_i|
+  article = Article.new
+  article.title = Faker::Lorem.sentence
+  article.body = Faker::Lorem.paragraph_by_chars(number: 300)
+  article.author = User.first
+  article.save
+end

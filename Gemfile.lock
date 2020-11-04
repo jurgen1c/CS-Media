@@ -1,3 +1,11 @@
+GIT
+  remote: https://github.com/faker-ruby/faker.git
+  revision: a65677484e246165735806da09a8f6e7c62f9c61
+  branch: master
+  specs:
+    faker (2.14.0)
+      i18n (>= 1.6, < 2)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -57,11 +65,11 @@ GEM
       tzinfo (~> 1.1)
       zeitwerk (~> 2.2, >= 2.2.2)
     ast (2.4.1)
-    autoprefixer-rails (10.0.1.0)
+    autoprefixer-rails (10.0.1.2)
       execjs
     bcrypt (3.1.16)
     bindex (0.8.1)
-    bootsnap (1.4.9)
+    bootsnap (1.5.0)
       msgpack (~> 1.0)
     bootstrap (5.0.0.alpha1)
       autoprefixer-rails (>= 9.1.0)
@@ -159,14 +167,14 @@ GEM
       actionpack (>= 5.0)
       railties (>= 5.0)
     rexml (3.2.4)
-    rspec-core (3.9.3)
-      rspec-support (~> 3.9.3)
-    rspec-expectations (3.9.4)
+    rspec-core (3.10.0)
+      rspec-support (~> 3.10.0)
+    rspec-expectations (3.10.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
-    rspec-mocks (3.9.1)
+      rspec-support (~> 3.10.0)
+    rspec-mocks (3.10.0)
       diff-lcs (>= 1.2.0, < 2.0)
-      rspec-support (~> 3.9.0)
+      rspec-support (~> 3.10.0)
     rspec-rails (4.0.1)
       actionpack (>= 4.2)
       activesupport (>= 4.2)
@@ -175,7 +183,7 @@ GEM
       rspec-expectations (~> 3.9)
       rspec-mocks (~> 3.9)
       rspec-support (~> 3.9)
-    rspec-support (3.9.4)
+    rspec-support (3.10.0)
     rubocop (1.1.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.5)
@@ -200,9 +208,6 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
-    simple_form (5.0.3)
-      actionpack (>= 5.0)
-      activemodel (>= 5.0)
     spring (2.1.1)
     spring-watcher-listen (2.0.1)
       listen (>= 2.7, < 4.0)
@@ -247,6 +252,7 @@ DEPENDENCIES
   bootstrap (~> 5.0.0.alpha1)
   byebug
   devise
+  faker!
   image_processing
   jbuilder (~> 2.7)
   listen (~> 3.2)
@@ -256,7 +262,6 @@ DEPENDENCIES
   rspec-rails
   rubocop
   sass-rails (>= 6)
-  simple_form
   spring
   spring-watcher-listen (~> 2.0.0)
   turbolinks (~> 5)

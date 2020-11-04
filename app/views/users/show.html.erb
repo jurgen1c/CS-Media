@@ -1,4 +1,4 @@
-<%= @user.avatar %>
+<%= image_tag(@article.author.avatar_thumbnail) if @article.author.avatar.attached? %>
 <%= @user.name %>
 <%= @user.username %>
 <br>
