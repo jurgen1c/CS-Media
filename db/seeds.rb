@@ -6,12 +6,6 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-# environment_seed_file = File.join(Rails.root, 'db', 'seeds', "#{Rails.env}.rb")
-
-#def seed_image(file_name)
-#  File.open(File.join(Rails.root, "/app/assets/images/backgrounds/#{file_name}.jpg"))
-#end
-
 sports = Type.new(name: 'Sports')
 sports.background.attach(
     io: File.open('app/assets/images/backgrounds/sports_bg.jpg'),
@@ -160,4 +154,34 @@ end
   )
   article.sources.first.article_id = article.id 
   article.save
+end
+
+10.times do |_i|
+  user = 1
+  Vote.create(user_id: user, article_id: 1)
+  user += 1
+end
+
+7.times do |_i|
+  user = 1
+  Vote.create(user_id: user, article_id: 10)
+  user += 1
+end
+
+5.times do |_i|
+  user = 1
+  Vote.create(user_id: user, article_id: 15)
+  user += 1
+end
+
+4.times do |_i|
+  user = 1
+  Vote.create(user_id: user, article_id: 5)
+  user += 1
+end
+
+2.times do |_i|
+  user = 1
+  Vote.create(user_id: user, article_id: 22)
+  user += 1
 end

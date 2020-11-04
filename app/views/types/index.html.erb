@@ -4,20 +4,24 @@
       <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
           <div class="carousel-item active">
-            <%= @articles.first.title %>
-            <%= image_tag(@articles.first.cover.variant(resize: "800x350!").processed)%>
+            <%= @popular.first.article.title %>
+            <%= image_tag(@popular.first.article.cover.variant(resize: "800x350!").processed)%>
           </div>
           <div class="carousel-item">
-            <%= @articles.second.title %>
-            <%= image_tag(@articles.second.cover.variant(resize: "800x350!").processed)%>
+            <%= @popular.second.article.title %>
+            <%= image_tag(@popular.second.article.cover.variant(resize: "800x350!").processed)%>
           </div>
           <div class="carousel-item">
-            <%= @articles.third.title %>
-            <%= image_tag(@articles.third.cover.variant(resize: "800x350!").processed)%>
+            <%= @popular.third.article.title %>
+            <%= image_tag(@popular.third.article.cover.variant(resize: "800x350!").processed)%>
           </div>
           <div class="carousel-item">
-            <%= @articles.fourth.title %>
-            <%= image_tag(@articles.fourth.cover.variant(resize: "800x350!").processed)%>
+            <%= @popular.fourth.article.title %>
+            <%= image_tag(@popular.fourth.article.cover.variant(resize: "800x350!").processed)%>
+          </div>
+          <div class="carousel-item">
+            <%= @popular.fifth.article.title %>
+            <%= image_tag(@popular.fifth.article.cover.variant(resize: "800x350!").processed)%>
           </div>
         </div>
       </div>

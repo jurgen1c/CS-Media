@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="jumbotron">
-  <%= image_tag(@article.cover) %>
+  <%= image_tag(@article.cover.variant(resize: "1200X400!").processed) %>
 </div>
 <div class="p-5 m-3">
   <%= image_tag(@article.author.avatar_thumbnail) if @article.author.avatar.attached? %>

@@ -26,7 +26,6 @@ gem 'devise'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 gem 'active_storage_validations'
-gem 'poppler'
 
 
 # Use Active Storage variant

@@ -3,7 +3,7 @@ class TypesController < ApplicationController
 
   def index
     @types = Type.all
-    @articles = Article.all
+    @popular = Vote.popular
     @sports = Type.find_by(name: 'Sports')
     @entertainment = Type.find_by(name: 'Entertainment')
     @travel = Type.find_by(name: 'Travel')

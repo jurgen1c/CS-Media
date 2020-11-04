@@ -8,9 +8,9 @@ class User < ApplicationRecord
   validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   has_one_attached :avatar
-  has_many :reviews
-  has_many :votes
-  has_many :comments
+  has_many :reviews, dependent: :destroy
+  has_many :votes, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_many :articles, dependent: :destroy
   has_many :followings, dependent: :destroy
   has_many :inverse_followings, class_name: 'Following', foreign_key: 'follow_id', dependent: :destroy
