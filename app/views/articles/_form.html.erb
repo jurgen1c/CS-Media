@@ -21,7 +21,7 @@
     <fieldset>
       <legend>Article Sources:</legend>
       <%= f.fields_for :sources do |sources_form| %>
-        <!--<%= render "source_fields", f: sources_form %>-->
+        <%= render "source_fields", f: sources_form %>
       <% end %>
       <%= link_to_add_fields "Add Sources", f, :sources %>
       <div>

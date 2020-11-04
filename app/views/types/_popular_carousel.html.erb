@@ -1,0 +1,49 @@
+<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <%= image_tag(@popular.first.article.cover.variant(resize: '1000x400!').processed)%>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= link_to @popular.first.article.title, article_path(@popular.first.article.id) %></h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag(@popular.second.article.cover.variant(resize: '1000x400!').processed)%>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= link_to @popular.second.article.title, article_path(@popular.second.article.id) %></h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag(@popular.third.article.cover.variant(resize: '1000x400!').processed)%>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= link_to @popular.third.article.title, article_path(@popular.third.article.id) %></h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag(@popular.fourth.article.cover.variant(resize: '1000x400!').processed)%>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= link_to @popular.fourth.article.title, article_path(@popular.fourth.article.id) %></h5>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <%= image_tag(@popular.fifth.article.cover.variant(resize: '1000x400!').processed)%>
+      <div class="carousel-caption d-none d-md-block">
+        <h5><%= link_to @popular.fifth.article.title, article_path(@popular.fifth.article.id) %></h5>
+      </div>
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>

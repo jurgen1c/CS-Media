@@ -1,9 +1,9 @@
 <p id="notice"><%= notice %></p>
-<div class="jumbotron">
-  <%= image_tag(@article.cover.variant(resize: "1200X400!").processed) %>
+<div class="jumbotron p-0">
+  <%= image_tag(@article.cover, class: 'img-fluid') %>
 </div>
 <div class="p-5 m-3">
-  <%= image_tag(@article.author.avatar_thumbnail) if @article.author.avatar.attached? %>
+  <%= image_tag(@article.author.avatar_thumbnail, class: 'rounded-circle') if @article.author.avatar.attached? %>
   <%= @article.author.name%>
   <%= nu_display(current_user, @article.author) %>
 </div>
@@ -22,8 +22,10 @@
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="p-3 m-3">
       <%= @article.title %>
-      <%=art_options(@article)%>
-      <%= vote_or_dislike_btn(@article) %>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%=art_options(@article)%>       
+        <%= vote_or_dislike_btn(@article) %>
+      </div>
       Votes:
       <%= @article.votes.count %>
       Views:
