@@ -1,22 +1,27 @@
 class Article < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :user_id
   belongs_to :type
+
   has_many :votes, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :reviewers, through: :reviews
   has_many :sources,  inverse_of: :article
   has_many :comments
+
   has_one_attached :cover
   has_rich_text :body
   accepts_nested_attributes_for :sources, allow_destroy: true
+
   validates_associated :sources, on: :create
   validates :title, :body, presence: true
+  validates :cover, content_type: ['image/png', 'image/jpg', 'image/jpeg']
+
   after_commit :add_default_cover, on: %i[create update]
 
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   def cover_thumbnail
-    avatar.variant(resize: "200X400!").processed
+    cover.variant(resize: "650X300!").processed
   end
 
   private

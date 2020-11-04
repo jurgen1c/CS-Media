@@ -52,7 +52,7 @@ class TypesController < ApplicationController
   end
 
   def type_params
-    params.require(:review).permit(:name)
+    params.require(:review).permit(:name, :background)
   end
   
 end

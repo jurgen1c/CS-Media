@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   
   validates :email, :password, presence: true
+  validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   has_one_attached :avatar
   has_many :reviews

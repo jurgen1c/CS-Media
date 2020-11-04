@@ -1,14 +1,34 @@
 <section class="container w-90">
   <div class="row">
     <div class="col-8">
-      <%= @articles.first.title %>
+      <div id="carouselExampleSlidesOnly" class="carousel slide" data-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <%= @articles.first.title %>
+            <%= image_tag(@articles.first.cover.variant(resize: "800x350!").processed)%>
+          </div>
+          <div class="carousel-item">
+            <%= @articles.second.title %>
+            <%= image_tag(@articles.second.cover.variant(resize: "800x350!").processed)%>
+          </div>
+          <div class="carousel-item">
+            <%= @articles.third.title %>
+            <%= image_tag(@articles.third.cover.variant(resize: "800x350!").processed)%>
+          </div>
+          <div class="carousel-item">
+            <%= @articles.fourth.title %>
+            <%= image_tag(@articles.fourth.cover.variant(resize: "800x350!").processed)%>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-4"></div>
   </div>
   <div class="row">
-    <% @types.each do |type| %>
+    <% @types.first(4).each do |type| %>
       <div class="col-3">
         <%=type.name%>
+        <%= image_tag(type.background.variant(resize: "250x250!").processed)%>
       </div>
     <%end%>
   </div>
@@ -40,113 +60,10 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-sports" role="tabpanel" aria-labelledby="pills-sports-tab">
       <div class="container">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4">
-            <%@sports.articles.each do |article|%>
-              <div>
-                <%= link_to article.title, article %>
-                <%= vote_or_dislike_btn(article) %>
-                <br>
-                <%= article.body %>
-              </div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-entertainment" role="tabpanel" aria-labelledby="pills-entertainment-tab">
-      <div class="container">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4">
-            <%@entertainment.articles.each do |article|%>
-              <div>
-                <%= link_to article.title, article %>
-                <%= vote_or_dislike_btn(article) %>
-                <br>
-                <%= article.body %>
-              </div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-travel" role="tabpanel" aria-labelledby="pills-travel-tab">
-      <div class="container">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4">
-            <%@travel.articles.each do |article|%>
-              <div>
-                <%= link_to article.title, article %>
-                <%= vote_or_dislike_btn(article) %>
-                <br>
-                <%= article.body %>
-              </div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-politics" role="tabpanel" aria-labelledby="pills-politics-tab">
-      <div class="container">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4">
-            <%@politics.articles.each do |article|%>
-              <div>
-                <%= link_to article.title, article %>
-                <%= vote_or_dislike_btn(article) %>
-                <%= link_to 'Show', article %>
-                <br>
-                <%= article.body %>
-              </div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-tech" role="tabpanel" aria-labelledby="pills-tech-tab">
-      <div class="container">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4">
-            <%@tech.articles.each do |article|%>
-              <div>
-                <%= link_to article.title, article %>
-                <%= vote_or_dislike_btn(article) %>
-                <br>
-                <%= article.body %>
-              </div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab">
-      <div class="container">
-        <div class="row">
-          <div class="col-8"></div>
-          <div class="col-4">
-            <%@business.articles.each do |article|%>
-              <div>
-                <%= link_to article.title, article %>
-                <%= vote_or_dislike_btn(article) %>
-                <br>
-                <%= article.body %>
-              </div>
-            <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="tab-pane fade" id="pills-fashion" role="tabpanel" aria-labelledby="pills-fashion-tab">
-      <div class="container">
-        <div class="row">
-          <%@fashion.articles.each do |article|%>
+        <%@sports.articles.each do |article|%>
+          <div class="row">
             <div class="col-8">
-              <%= article.body.attachments.first%>
+              <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
@@ -154,9 +71,110 @@
               <br>
               <%= article.body %>
             </div>
-          <%end%>
-          
-        </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-entertainment" role="tabpanel" aria-labelledby="pills-entertainment-tab">
+      <div class="container">
+        <%@entertainment.articles.each do |article|%>
+          <div class="row">
+            <div class="col-8">
+              <%= image_tag(article.cover_thumbnail) %>
+            </div>
+            <div class="col-4">
+              <%= link_to article.title, article %>
+              <%= vote_or_dislike_btn(article) %>
+              <br>
+              <%= article.body %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-travel" role="tabpanel" aria-labelledby="pills-travel-tab">
+      <div class="container">
+        <%@travel.articles.each do |article|%>
+          <div class="row">
+            <div class="col-8">
+              <%= image_tag(article.cover_thumbnail) %>
+            </div>
+            <div class="col-4">
+              <%= link_to article.title, article %>
+              <%= vote_or_dislike_btn(article) %>
+              <br>
+              <%= article.body %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-politics" role="tabpanel" aria-labelledby="pills-politics-tab">
+      <div class="container">
+        <%@politics.articles.each do |article|%>
+          <div class="row">
+            <div class="col-8">
+              <%= image_tag(article.cover_thumbnail) %>
+            </div>
+            <div class="col-4">
+              <%= link_to article.title, article %>
+              <%= vote_or_dislike_btn(article) %>
+              <br>
+              <%= article.body %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-tech" role="tabpanel" aria-labelledby="pills-tech-tab">
+      <div class="container">
+        <%@tech.articles.each do |article|%>
+          <div class="row">
+            <div class="col-8">
+              <%= image_tag(article.cover_thumbnail) %>
+            </div>
+            <div class="col-4">
+              <%= link_to article.title, article %>
+              <%= vote_or_dislike_btn(article) %>
+              <br>
+              <%= article.body %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab">
+      <div class="container">
+        <%@business.articles.each do |article|%>
+          <div class="row">
+            <div class="col-8">
+              <%= image_tag(article.cover_thumbnail) %>
+            </div>
+            <div class="col-4">
+              <%= link_to article.title, article %>
+              <%= vote_or_dislike_btn(article) %>
+              <br>
+              <%= article.body %>
+            </div>
+          </div>
+        <%end%>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-fashion" role="tabpanel" aria-labelledby="pills-fashion-tab">
+      <div class="container">
+        <%@fashion.articles.each do |article|%>
+          <div class="row">
+            <div class="col-8">
+              <%= image_tag(article.cover_thumbnail) %>
+            </div>
+            <div class="col-4">
+              <%= link_to article.title, article %>
+              <%= vote_or_dislike_btn(article) %>
+              <br>
+              <%= article.body %>
+            </div>
+          </div>
+        <%end%>
       </div>
     </div>
   </div>
