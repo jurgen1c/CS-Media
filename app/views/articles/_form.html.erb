@@ -20,11 +20,12 @@
     <hr>
     <fieldset>
       <legend>Article Sources:</legend>
+      <p>Your article must contain atleast one source which can be provided as an attached file or link. Please add a short description about your source</p>
       <%= f.fields_for :sources do |sources_form| %>
         <%= render "source_fields", f: sources_form %>
       <% end %>
       <%= link_to_add_fields "Add Sources", f, :sources %>
-      <div>
+      <div class="m-1">
         <%= link_to "Remove", '#', class: "remove_fields btn btn-danger"%>
       </div>
     </fieldset>

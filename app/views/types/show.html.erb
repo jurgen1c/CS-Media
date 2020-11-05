@@ -1,0 +1,14 @@
+<div class="container">
+  <% @type.articles.each do |article| %>
+    <div class="row">
+      <div class="col-12 col-md-3 p-0">
+        <%= image_tag(article.cover_thumbnail) %>
+      </div>
+      <div class="col-12 col-md-3 p-0">
+        <%= link_to article.title, article %>
+        <br />
+        <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
+      </div>
+    </div>
+  <%end%>
+</div>

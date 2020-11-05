@@ -1,7 +1,9 @@
-<div class="art-reviews">
-  <p>
+<div class="col-12">
+  <h2 class="m-1">
     <%= review.reviewer.name %>
-    <br>
+    <hr>
+  </h2>
+  <p class="m-1">
     <%= review.body %>
   </p>
   <span> <%= review.created_at.strftime("%Y/%m/%d") %> </span>

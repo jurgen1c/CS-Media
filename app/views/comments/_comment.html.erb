@@ -1,6 +1,10 @@
-<div class="art-comments">
-  <p>
-    <b><%= comment.user.name %>:</b> <%= comment.content %>
+<div class="card m-2">
+  <%= comment.user.avatar_thumbnail %>
+  <h3 class="card-title">
+    <b><%= comment.user.name %> 
+  </h3>
+  <p class=card-body>
+    <%= comment.content %>
   </p>
   <span> <%= comment.created_at.strftime("%Y/%m/%d") %> </span>
   <%= com_options(comment) %>

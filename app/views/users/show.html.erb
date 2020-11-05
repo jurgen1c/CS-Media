@@ -11,20 +11,30 @@
     </div>
   </div>
 </div>
-<br>
-<% @user.follows.each do |follow| %>
-  <%= follow.name%>
-  <%= follow.username%>
-  <%= nu_display(current_user, follow)%>
-<%end%>
-<br>
-<% @user.articles.each do |article| %> 
-  <%= article.title %>
-  <%= article.votes.count %>
-  <br>
-  <%= article.cover %>
-  <hr>
-  <%= article.body %>
-<%end%>
+<div class="d-flex">
+  <% @user.follows.each do |follow| %>
+    <div class="card">
+      <h3>
+        <%= follow.name%>
+      </h3>
+      <h3>
+        <%= follow.username%>
+      </h3>
+    </div>
+    <%= nu_display(current_user, follow)%>
+  <%end%>
+</div>
+<div>
+  <div class="row">
+    <% @user.articles.each do |article| %> 
+      <h2><%= link_to article.title, article %></h2>
+      <%= article.votes.count %>
+      <br>
+      <%= article.cover %>
+      <hr>
+      <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
+    <%end%>
+  </div>
+</div>
 
   

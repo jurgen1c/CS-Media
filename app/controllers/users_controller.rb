@@ -12,6 +12,6 @@ class UsersController < ApplicationController
   private
 
   def timeline_arts
-    @timeline_arts ||= Article.all.ordered_by_most_recent.includes(:user)
+    @timeline_arts ||= Article.all.ordered_by_most_recent.includes(:author)
   end
 end

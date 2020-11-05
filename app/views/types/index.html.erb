@@ -50,7 +50,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
@@ -67,7 +67,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
@@ -84,7 +84,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
@@ -101,7 +101,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
@@ -118,7 +118,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
@@ -135,7 +135,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
@@ -152,7 +152,7 @@
               <%= link_to article.title, article %>
               <%= vote_or_dislike_btn(article) %>
               <br>
-              <%= article.body %>
+              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
             </div>
           </div>
         <%end%>
