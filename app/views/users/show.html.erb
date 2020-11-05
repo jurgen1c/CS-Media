@@ -1,6 +1,16 @@
-<%= image_tag(@user.avatar_thumbnail) if @user.avatar.attached? %>
-<%= @user.name %>
-<%= @user.username %>
+<div class="container my-2">
+  <div class="row">
+    <div class="col-3">
+      <%= image_tag(@user.avatar_thumbnail, class: 'rounded-circle') if @user.avatar.attached? %>
+    </div>
+    <div class="col-9">
+      <h1><%= @user.name %></h1>
+      <%= @user.username %>
+      <br />
+      <%= @user.bio %>
+    </div>
+  </div>
+</div>
 <br>
 <% @user.follows.each do |follow| %>
   <%= follow.name%>

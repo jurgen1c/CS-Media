@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  validates :email, :password, presence: true
+  validates :name, :bio, :email, :password, presence: true
   validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   has_one_attached :avatar

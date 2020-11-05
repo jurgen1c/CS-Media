@@ -56,13 +56,14 @@ travel.background.attach(
   )
 travel.save
 
-User.create(name: 'Sanad', username: 'Sandoog', email: 'sanad@sandoog.com', password: '123456', password_confirmation: '123456')
-User.create(name: 'Obama', username: 'Obamama', email: 'obama@obamama.com', password: '654321', password_confirmation: '654321')
+User.create(name: 'Sanad', username: 'Sandoog', bio: Faker::Lorem.paragraph_by_chars(number: 200), email: 'sanad@sandoog.com', password: '123456', password_confirmation: '123456')
+User.create(name: 'Obama', username: 'Obamama', bio: Faker::Lorem.paragraph_by_chars(number: 150), email: 'obama@obamama.com', password: '654321', password_confirmation: '654321')
 
 10.times do |_i|
   User.create!(
     name: Faker::Name.name,
     username: Faker::Internet.unique.username,
+    bio: Faker::Lorem.paragraph,
     email: Faker::Internet.unique.email,
     password: 'password',
     password_confirmation: 'password'
@@ -79,7 +80,7 @@ Article.create(
   title: Faker::Lorem.sentence, 
   user_id:'1', 
   type_id: '2', 
-  body: Faker::Lorem.paragraph_by_chars(number: 300),
+  body: Faker::Lorem.paragraph_by_chars(number: 370),
   sources_attributes: [
       {
         title: Faker::Lorem.sentence,
@@ -94,11 +95,11 @@ Article.create(
     title: Faker::Lorem.sentence, 
     user_id: User.first.id, 
     type_id: "#{rand(1..7)}", 
-    body: Faker::Lorem.paragraph_by_chars(number: 300),
+    body: Faker::Lorem.paragraph_by_chars(number: 550),
     sources_attributes: [
       {
         title: Faker::Lorem.sentence,
-        body: Faker::Lorem.paragraph_by_chars(number: 150)
+        body: Faker::Lorem.paragraph_by_chars(number: 300)
       }
     ]
   )
@@ -110,11 +111,11 @@ end
     title: Faker::Lorem.sentence, 
     user_id: User.second.id, 
     type_id: "#{rand(1..7)}", 
-    body: Faker::Lorem.paragraph_by_chars(number: 300),
+    body: Faker::Lorem.paragraph_by_chars(number: 600),
     sources_attributes: [
       {
         title: Faker::Lorem.sentence,
-        body: Faker::Lorem.paragraph_by_chars(number: 150)
+        body: Faker::Lorem.paragraph_by_chars(number: 350)
       }
     ]
   ) 
@@ -127,7 +128,7 @@ end
     title: Faker::Lorem.sentence, 
     user_id: User.third.id, 
     type_id: "#{rand(1..7)}", 
-    body: Faker::Lorem.paragraph_by_chars(number: 300),
+    body: Faker::Lorem.paragraph_by_chars(number: 450),
     sources_attributes: [
       {
         title: Faker::Lorem.sentence,
@@ -144,11 +145,11 @@ end
     title: Faker::Lorem.sentence, 
     user_id: User.fourth.id, 
     type_id: "#{rand(1..7)}", 
-    body: Faker::Lorem.paragraph_by_chars(number: 300),
+    body: Faker::Lorem.paragraph_by_chars(number: 500),
     sources_attributes: [
       {
         title: Faker::Lorem.sentence,
-        body: Faker::Lorem.paragraph_by_chars(number: 150)
+        body: Faker::Lorem.paragraph_by_chars(number: 250)
       }
     ]
   )

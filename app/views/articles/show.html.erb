@@ -2,10 +2,19 @@
 <div class="jumbotron p-0">
   <%= image_tag(@article.cover, class: 'img-fluid') %>
 </div>
-<div class="p-5 m-3">
-  <%= image_tag(@article.author.avatar_thumbnail, class: 'rounded-circle') if @article.author.avatar.attached? %>
-  <%= @article.author.name%>
-  <%= nu_display(current_user, @article.author) %>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-3">
+      <%= image_tag(@article.author.avatar_thumbnail, class: 'rounded-circle') if @article.author.avatar.attached? %>
+    </div>
+    <div class="col-9">
+      <h1>Author: <%= @article.author.name%></h1>
+      <%= link_to 'See Profil', user_path(@article.author.id)%>
+      <%= nu_display(current_user, @article.author) %>
+      <br />
+      <%= @article.author.bio %>
+    </div>
+  </div>
 </div>
 <ul class="nav nav-tabs" id="myTab" role="tablist">
   <li class="nav-item" role="presentation">
@@ -21,7 +30,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="p-3 m-3">
-      <%= @article.title %>
+      <h1><%= @article.title %></h1>
       <div class="btn-group" role="group" aria-label="Basic example">
         <%=art_options(@article)%>       
         <%= vote_or_dislike_btn(@article) %>
