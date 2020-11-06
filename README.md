@@ -28,7 +28,7 @@
 > To get a local copy up and running follow these simple example steps.
 
 - Go to the main page of the repo.
-- Copy this Code `git@github.com:sanadwj/Opinions.git`
+- Copy this Code `https://github.com/jurgen1c/CS-Media.git`
 
 
 

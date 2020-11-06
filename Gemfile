@@ -26,8 +26,8 @@ gem 'active_storage_validations'
 gem 'better_errors'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'devise'
+gem 'aws-sdk-s3', require: false
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
-gem "aws-sdk-s3", require: false
 
 # Use Active Storage variant
 gem 'image_processing'
