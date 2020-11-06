@@ -1,57 +1,62 @@
-<h2>Sign up</h2>
+<div class="my-background w-100">
+  <div class="center flex-column justify-content-center align-content-center w-25 p-3">
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+    <h2 class="my-title m-3">Sign up</h2>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name, class: 'my-text' %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :username, class: 'my-text' %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+      </div>
+
+      <div class="field">
+        <% if resource.avatar.attached? %>
+          <%= image_tag(resource.avatar)%>
+        <%else %>
+          <%= image_tag("/assets/default_profile.jpg", style: 'width: 4rem; height: 4rem', class: 'my-2 rounded-circle')%>
+        <%end%>
+      </div>
+
+      <div class="field">
+        <%= f.label :avatar, class: 'my-text' %><br />
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="field">
+        <%= f.label :bio, class: 'my-text' %><br />
+        <%= f.text_area :bio %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, class: 'my-text' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password, class: 'my-text' %>
+        <% if @minimum_password_length %>
+        <em class="my-text">(<%= @minimum_password_length %> characters minimum)</em>
+        <% end %><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field my-2">
+        <%= f.label :password_confirmation, class: 'my-text' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Sign up", class: 'btn btn-outline-primary' %>
+      </div>
+    <% end %>
+
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :username %><br />
-    <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-  </div>
-
-  <div class="field">
-    <% if resource.avatar.attached? %>
-      <%= image_tag(resource.avatar)%>
-    <%else %>
-      <%= image_tag("/default_profile.jpg")%>
-    <%end%>
-  </div>
-
-  <div class="field">
-    <%= f.label :avatar %><br />
-    <%= f.file_field :avatar %>
-  </div>
-
-  <div class="field">
-    <%= f.label :bio %>
-    <%= f.text_area :bio %>
-  </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>

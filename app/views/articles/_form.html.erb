@@ -1,37 +1,40 @@
-<div class="art-form mx-auto p-3">
-  <%= form_with model: @article, local: true do |f| %>
-    <%= display_errors(@article) %>
-    <div class="field">
-      <%= f.label :title %>
-      <%= f.text_field :title, placeholder: 'Add Title' %> 
-    </div>
-    <div class="field">
-      <%= f.label :cover %>
-      <%= f.file_field :cover, placeholder: 'Add Cover' %> 
-    </div>
-    <div class="field">
-      <%= f.label :type %>
-      <%= f.select :type_id, Type.all.map {|c| [c.name, c.id]} %>
-    </div>
-    <div class="field">
-      <%= f.label :body%>
-      <%= f.rich_text_area :body, placeholder: 'Add content' %> 
-    </div>
-    <hr>
-    <fieldset>
-      <legend>Article Sources:</legend>
-      <p>Your article must contain atleast one source which can be provided as an attached file or link. Please add a short description about your source</p>
-      <%= f.fields_for :sources do |sources_form| %>
-        <%= render "source_fields", f: sources_form %>
-      <% end %>
-      <%= link_to_add_fields "Add Sources", f, :sources %>
-      <div class="m-1">
-        <%= link_to "Remove", '#', class: "remove_fields btn btn-danger"%>
+<div class="my-background w-100">
+  <h1 class="my-title mx-3">New Article</h1>
+  <div class="w-75 flex-column mx-auto p-3">
+    <%= form_with model: @article, local: true do |f| %>
+      <%= display_errors(@article) %>
+      <div class="field my-2">
+        <%= f.label :title, class: 'my-text' %><br />
+        <%= f.text_field :title, placeholder: 'Add Title' %> 
       </div>
-    </fieldset>
-    <hr>
-    <div class="form-actions">
-      <%= f.button :submit, class: "btn btn-primary" %>
-    </div>
-  <% end %>
+      <div class="field">
+        <%= f.label :cover, class: 'my-text' %><br />
+        <%= f.file_field :cover, placeholder: 'Add Cover' %> 
+      </div>
+      <div class="field my-2">
+        <%= f.label :type, class: 'my-text' %><br />
+        <%= f.select :type_id, Type.all.map {|c| [c.name, c.id]} %>
+      </div>
+      <div class="field">
+        <%= f.label :body, class: 'my-text'%><br />
+        <%= f.rich_text_area :body, placeholder: 'Add content' %> 
+      </div>
+      <hr>
+      <fieldset>
+        <legend class="my-title">Article Sources:</legend>
+        <p class="my-text">Your article must contain atleast one source which can be provided as an attached file or link. Please add a short description about your source</p>
+        <%= f.fields_for :sources do |sources_form| %>
+          <%= render "source_fields", f: sources_form %>
+        <% end %>
+        <%= link_to_add_fields "Add Sources", f, :sources %>
+        <div class="m-1">
+          <%= link_to "Remove", '#', class: "remove_fields btn btn-outline-danger my-text my-1"%>
+        </div>
+      </fieldset>
+      <hr>
+      <div class="form-actions">
+        <%= f.button :submit, class: "btn btn-outline-primary my-text my-2" %>
+      </div>
+    <% end %>
+  </div>
 </div>

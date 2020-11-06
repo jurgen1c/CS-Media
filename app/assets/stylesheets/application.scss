@@ -18,15 +18,22 @@ $bg-color: rgb(68, 65, 65);
 $header-color: rgb(196, 84, 32);
 $text-color: rgb(209, 204, 204);
 
+
 main {
   background: $bg-color;
+  height: 100vh;
+  margin: 2em 0 4em 0;
 }
 
 .my-background {
   background: $bg-color;
 }
+.my-color {
+  color: $header-color;
+}
 
 footer {
+  border-top: solid 1px $header-color;
   background: $bg-color;
 }
 
@@ -43,6 +50,10 @@ a {
 
 .half {
   width: 50%;
+}
+
+.center {
+  margin: 2rem auto;
 }
 
 .my-title {
@@ -73,5 +84,9 @@ a {
 }
 
 .nav-pills .nav-link.active {
+  background-color: $header-color!important;
+}
+
+.nav-tabs .nav-link.active {
   background-color: $header-color!important;
 }

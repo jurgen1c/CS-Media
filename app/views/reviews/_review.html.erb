@@ -1,15 +1,17 @@
-<div class="col-12">
-  <h2 class="m-1">
-    <%= review.reviewer.name %>
+<div class="row">
+  <div class="col-12">
+    <h2 class="m-1">
+      <%= review.reviewer.name %>
+      <hr>
+    </h2>
+    <h2>
+      <%= review.title%>
+    </h2>
+    <p class="m-1">
+      <%= review.body %>
+    </p>
+    <span> <%= review.created_at.strftime("%Y/%m/%d") %> </span>
     <hr>
-  </h2>
-  <h2>
-    <%= review.title%>
-  </h2>
-  <p class="m-1">
-    <%= review.body %>
-  </p>
-  <span> <%= review.created_at.strftime("%Y/%m/%d") %> </span>
-  <hr>
-  <%= rev_options(review) %>
+    <%= rev_options(review) %>
+  </div>
 </div>

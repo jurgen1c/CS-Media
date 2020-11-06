@@ -13,7 +13,7 @@
   <body>
     <header>
       <div id="flash"><%= flash_message%></div>
-      <nav class="navbar navbar-expand-lg sticky-top navbar-light bg-white">
+      <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <%= link_to 'CS Media', root_path, class: "navbar-brand p-2"%>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -69,35 +69,32 @@
             </form>
           </div>
           <a class="nav-link ml-1" href="#searchForm" data-target="#searchForm" data-toggle="collapse">
-            <i class="mdi mdi-magnify"></i>
+            <i class="fas fa-search my-subtitle"></i>
           </a>
       </nav>
     </header>
     <main>
       <%= yield %>
     </main>
-    <footer class="d-flex">
-      <div>
-        <%= link_to 'CS Media', root_path, class: "p-2"%>
+    <footer class="d-flex fixed-bottom">
+      <div class="w-25 pt-2">
+        <%= link_to 'CS Media', root_path, class: " my-text p-2 mr-md-5"%>
       </div>
-      <nav>
-        <ul class="nav">
+      <nav class="w-50 py-1">
+        <ul class="nav d-flex justify-content-center">
           <li class="nav-item">
-            <a class="nav-link active" href="#!">Active</a>
+            <a class="nav-link my-color" href="#!">Privacy Policy</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#!">Link</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link disabled" href="#!">Disabled</a>
+            <a class="nav-link my-color" href="#!">Terms & Conditions</a>
           </li>
         </ul>
       </nav>
-      <div>
-        <p>Connect with us:</p>
-        <i></i>
-        <i></i>
-        <i></i>
+      <div class="w-25 d-flex pt-1">
+        <p class="my-text py-1">Connect with us:</p>
+        <i class="fab fa-twitter-square fa-2x my-color mx-2"></i>
+        <i class="fab fa-instagram-square fa-2x my-color"></i>
+        <i class="fab fa-facebook-square fa-2x my-color ml-2"></i>
       </div>
     </footer>
   </body>
