@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p>
 <div class="jumbotron p-0">
-  <%= image_tag(@article.cover, class: 'img-fluid') %>
+  <%= image_tag(@article.cover, style: 'width: 100%; height:20em') %>
 </div>
 <div class="container my-3">
   <div class="row">
@@ -8,11 +8,14 @@
       <%= image_tag(@article.author.avatar_thumbnail, class: 'rounded-circle') if @article.author.avatar.attached? %>
     </div>
     <div class="col-9">
-      <h1>Author: <%= @article.author.name%></h1>
-      <%= link_to 'See Profil', user_path(@article.author.id)%>
+      <h1 class="my-title">Author: <%= @article.author.name%></h1>
+      <%= link_to 'See Profile', user_path(@article.author.id), class: 'btn btn-outline-primary my-text'%>
       <%= nu_display(current_user, @article.author) %>
-      <br />
-      <%= @article.author.bio %>
+      <p class="my-text">
+        Bio
+        <br />
+        <%= @article.author.bio %>
+      </p>
     </div>
   </div>
 </div>
@@ -30,7 +33,7 @@
 <div class="tab-content" id="myTabContent">
   <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="p-3 m-3">
-      <h1><%= @article.title %></h1>
+      <h1 class="my-title"><%= @article.title %></h1>
       <div class="btn-group" role="group" aria-label="Basic example">
         <%=art_options(@article)%>       
         <%= vote_or_dislike_btn(@article) %>
@@ -40,15 +43,16 @@
       Views:
       <%= @article.views %>
       <hr>
-      <%= @article.body%>
+      <p class="my-text"><%= @article.body%></p>
     </div>
     <div>
       <%= render partial: 'comments/comment', collection: @article.comments %>
-
-      <%= form_for(@article.comments.new, url: article_comments_path(@article)) do |form| %>
-        <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
-        <%= form.submit 'Comment', class: 'btn btn-secondary' %>
-      <% end %>
+      <div class="my-width">
+        <%= form_for(@article.comments.new, url: article_comments_path(@article)) do |form| %>
+          <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
+          <%= form.submit 'Comment', class: 'btn btn-outline-primary my-text my-2' %>
+        <% end %>
+      </div>
     </div>
   </div>
   <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">

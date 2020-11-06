@@ -19,38 +19,64 @@
           <span class="navbar-toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse p-1" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse py-1 w-100" id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <%= link_to 'Timeline', articles_path, class: "nav-link" %>
+              <%= link_to 'Home', root_path, class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Tech', type_path(3), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Politics', type_path(4), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Businnes', type_path(5), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Entertainment', type_path(2), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Sports', type_path(1), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Fashion', type_path(6), class: "nav-link" %>
+            </li>
+            <li class="nav-item">
+              <%= link_to 'Travel', type_path(7), class: "nav-link mr-md-5" %>
             </li>
             <% if current_user %>
               <li class="nav-item">
-                <%= link_to 'Create Article', new_article_path, class: 'nav-link' %>
+                <%= link_to 'Create Article |', new_article_path, class: 'nav-link ml-md-5' %>
               </li>
               <li class="nav-item">
                 <%= link_to "#{current_user.name.capitalize}", user_path(current_user.id), class: "nav-link"%>
               </li>
               <li class="nav-item">
-                <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+                <%= link_to '| Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
               </li>
             <% else %>
               <li class="nav-item">
-                <%= link_to 'Sign in', user_session_path, class: "nav-link" %>
+                <%= link_to 'Sign in', user_session_path, class: "nav-link ml-md-5" %>
               </li>
             <% end %>
           </ul>
-          <form class="form-inline my-2 my-lg-0" action="/search">
-            <input class="form-control mr-sm-2" name="q" type="text" placeholder="Search" aria-label="Search">
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-          </form>
         </div>
+          <div class="collapse fade" id="searchForm">
+            <form class="form-inline my-1 my-md-0" action="/search">
+              <input class="form-control w-50" name="q" type="text" placeholder="Search" aria-label="Search">
+              <button class="btn-sm btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
+            </form>
+          </div>
+          <a class="nav-link ml-1" href="#searchForm" data-target="#searchForm" data-toggle="collapse">
+            <i class="mdi mdi-magnify"></i>
+          </a>
       </nav>
     </header>
     <main>
       <%= yield %>
     </main>
-    <footer>
+    <footer class="d-flex">
       <div>
         <%= link_to 'CS Media', root_path, class: "p-2"%>
       </div>

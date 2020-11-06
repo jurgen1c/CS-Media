@@ -1,21 +1,20 @@
-<section class="container-fluid">
+<section class="container-fluid my-background">
   <div class="row">
-    <div class="col-12 col-md-9 p-0">
+    <div class="col-12 p-0 m-0">
       <%= render 'popular_carousel'%>
     </div>
-    <div class="col-4"></div>
   </div>
   <div class="row">
     <% @types.first(4).each do |type| %>
-      <div class="col-3 p-0">
-        <%=type.name%>
-        <%= image_tag(type.background.variant(resize: "250x250!").processed)%>
+      <div class="col-12 col-md-3 p-0 position-relative">
+        <h3 class="position-absolute border-bottom m-2"><%=link_to type.name, type, class: 'my-title'%></h3>
+        <%= image_tag(type.background, style: 'height: 100%; width: 100%')%>
       </div>
     <%end%>
   </div>
 </section>
-<section class="container w-90">
-  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+<section class="container-fluid pt-3 w-100 my-background">
+  <ul class="nav nav-pills mb-4 nav-justified" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="pills-sports-tab" data-toggle="pill" href="#pills-sports" role="tab" aria-controls="pills-sports" aria-selected="true">Sports</a>
     </li>
@@ -42,12 +41,13 @@
     <div class="tab-pane fade show active" id="pills-sports" role="tabpanel" aria-labelledby="pills-sports-tab">
       <div class="container">
         <%@sports.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
@@ -59,12 +59,13 @@
     <div class="tab-pane fade" id="pills-entertainment" role="tabpanel" aria-labelledby="pills-entertainment-tab">
       <div class="container">
         <%@entertainment.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
@@ -76,12 +77,13 @@
     <div class="tab-pane fade" id="pills-travel" role="tabpanel" aria-labelledby="pills-travel-tab">
       <div class="container">
         <%@travel.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
@@ -93,12 +95,13 @@
     <div class="tab-pane fade" id="pills-politics" role="tabpanel" aria-labelledby="pills-politics-tab">
       <div class="container">
         <%@politics.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
@@ -110,12 +113,13 @@
     <div class="tab-pane fade" id="pills-tech" role="tabpanel" aria-labelledby="pills-tech-tab">
       <div class="container">
         <%@tech.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
@@ -127,12 +131,13 @@
     <div class="tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab">
       <div class="container">
         <%@business.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
@@ -144,12 +149,13 @@
     <div class="tab-pane fade" id="pills-fashion" role="tabpanel" aria-labelledby="pills-fashion-tab">
       <div class="container">
         <%@fashion.articles.each do |article|%>
-          <div class="row">
+          <div class="row mt-3">
             <div class="col-8">
               <%= image_tag(article.cover_thumbnail) %>
             </div>
             <div class="col-4">
               <%= link_to article.title, article %>
+              <br />
               <%= vote_or_dislike_btn(article) %>
               <br>
               <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>

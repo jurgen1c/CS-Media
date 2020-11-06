@@ -8,7 +8,6 @@ class ReviewsController < ApplicationController
       redirect_to article_path(@review.article_id)
     else
       flash[:error] = "Something went wrong"
-      render 'new'
     end
   end
 

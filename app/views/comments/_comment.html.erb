@@ -1,5 +1,5 @@
 <div class="card m-2">
-  <%= comment.user.avatar_thumbnail %>
+  <%= image_tag(comment.user.avatar_thumbnail, class: 'rounded-circle') %>
   <h3 class="card-title">
     <b><%= comment.user.name %> 
   </h3>

@@ -6,12 +6,12 @@ module FollowingsHelper
     following = Following.find_by(user_id: current_user.id, follow_id: n_user.id) if following.nil?
 
     if current_user == n_user
-      content_tag :button, (link_to 'Unfollow', following_path(id: following.id), method: :delete, data: { confirm: 'Are you sure?' }), class: 'btn btn-danger', type: 'button'
+      content_tag :button, (link_to 'Unfollow', following_path(id: following.id), method: :delete, data: { confirm: 'Are you sure?' }), class: 'btn btn-outline-danger mytext', type: 'button'
     elsif current_user.follow?(n_user)
-      content_tag :button, (link_to 'Unfollow', following_path(id: following.id), method: :delete, data: { confirm: 'Are you sure?' }), class: 'btn btn-danger', type: 'button'
+      content_tag :button, (link_to 'Unfollow', following_path(id: following.id), method: :delete, data: { confirm: 'Are you sure?' }), class: 'btn btn-outline-danger my-text', type: 'button'
       #link_to 'Unfollow', following_path(id: following.id), method: :delete, class: 'btn btn-danger'
     else
-      content_tag :button, (link_to 'Follow', followings_path(user_id: current_user.id, follow_id: n_user.id), method: :post), class: 'btn btn-succes', type: 'button'
+      content_tag :button, (link_to 'Follow', followings_path(user_id: current_user.id, follow_id: n_user.id), method: :post), class: 'btn btn-outline-primary my-text', type: 'button'
       #link_to 'Follow', followings_path(user_id: current_user.id, follow_id: n_user.id), method: :post, class: 'btn btn-primary'
     end
   end

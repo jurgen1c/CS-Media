@@ -8,33 +8,38 @@
   </ol>
   <div class="carousel-inner">
     <div class="carousel-item active">
-      <%= image_tag(@popular.first.article.cover.variant(resize: '1000x400!').processed)%>
+      <%= image_tag(@popular.first.article.cover, style: 'height: 25em; width: 100%')%>
       <div class="carousel-caption d-none d-md-block">
-        <h5><%= link_to @popular.first.article.title, article_path(@popular.first.article.id) %></h5>
+        <h4><%= link_to @popular.first.article.title, article_path(@popular.first.article.id), class: 'my-title'%></h4>
+        <p class="my-text"><%= truncate(strip_tags(@popular.first.article.rich_text_body.to_s), length: 50) %></p>
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag(@popular.second.article.cover.variant(resize: '1000x400!').processed)%>
+      <%= image_tag(@popular.second.article.cover, style: 'height: 25em; width: 100%')%>
       <div class="carousel-caption d-none d-md-block">
-        <h5><%= link_to @popular.second.article.title, article_path(@popular.second.article.id) %></h5>
+        <h4><%= link_to @popular.second.article.title, article_path(@popular.second.article.id), class: "my-title" %></h4>
+        <p class="my-text"><%= truncate(strip_tags(@popular.second.article.rich_text_body.to_s), length: 50) %></p>
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag(@popular.third.article.cover.variant(resize: '1000x400!').processed)%>
+      <%= image_tag(@popular.third.article.cover, style: 'height: 25em; width: 100%')%>
       <div class="carousel-caption d-none d-md-block">
-        <h5><%= link_to @popular.third.article.title, article_path(@popular.third.article.id) %></h5>
+        <h4><%= link_to @popular.third.article.title, article_path(@popular.third.article.id), class: "my-title" %></h4>
+        <p class="my-text"><%= truncate(strip_tags(@popular.third.article.rich_text_body.to_s), length: 50) %></p>
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag(@popular.fourth.article.cover.variant(resize: '1000x400!').processed)%>
+      <%= image_tag(@popular.fourth.article.cover, style: 'height: 25em; width: 100%')%>
       <div class="carousel-caption d-none d-md-block">
-        <h5><%= link_to @popular.fourth.article.title, article_path(@popular.fourth.article.id) %></h5>
+        <h4><%= link_to @popular.fourth.article.title, article_path(@popular.fourth.article.id), class: "my-title" %></h4>
+        <p class="my-text"><%= truncate(strip_tags(@popular.fourth.article.rich_text_body.to_s), length: 50) %></p>
       </div>
     </div>
     <div class="carousel-item">
-      <%= image_tag(@popular.fifth.article.cover.variant(resize: '1000x400!').processed)%>
+      <%= image_tag(@popular.fifth.article.cover, style: 'height: 25em; width: 100%')%>
       <div class="carousel-caption d-none d-md-block">
-        <h5><%= link_to @popular.fifth.article.title, article_path(@popular.fifth.article.id) %></h5>
+        <h4><%= link_to @popular.fifth.article.title, article_path(@popular.fifth.article.id), class: "my-title" %></h4>
+        <p class="my-text"><%= truncate(strip_tags(@popular.fifth.article.rich_text_body.to_s), length: 50) %></p>
       </div>
     </div>
   </div>

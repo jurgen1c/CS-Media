@@ -22,3 +22,10 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+resume reu Irela 
+
+Fuentes deben ser primarias osea usuraio obtuvo info directamente y debe probarlo con grabcion audio o archivos, white list y limitar tamaño. entrevistas.
+Fuentes secundarias al no ser primera mano deben haber multiples fuentes corroborando la informacion
+google schcolars, medios reconocidos, oaginas govs
+un articulo con X cantidad de reviews negativos sera eliminado 
+tratar de que no sea anonimo 

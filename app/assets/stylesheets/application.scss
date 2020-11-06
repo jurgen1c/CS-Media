@@ -13,5 +13,65 @@
  */
 //= require actiontext
 @import "bootstrap/scss/bootstrap";
-@import "base.scss";
-@import "overrides.scss";
+
+$bg-color: rgb(68, 65, 65);
+$header-color: rgb(196, 84, 32);
+$text-color: rgb(209, 204, 204);
+
+main {
+  background: $bg-color;
+}
+
+.my-background {
+  background: $bg-color;
+}
+
+footer {
+  background: $bg-color;
+}
+
+a {
+  color: whitesmoke;
+  &:hover {
+    color: whitesmoke;
+  }
+}
+
+.navbar-brand {
+  color: $header-color !important;
+}
+
+.half {
+  width: 50%;
+}
+
+.my-title {
+  color: $header-color;
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.my-subtitle {
+  color: $header-color;
+  font-size: 1.5rem;
+}
+
+.my-text {
+  color: $text-color;
+}
+
+.my-width {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.my-bg {
+  padding: 1rem;
+  background: whitesmoke;
+  border-radius: 5px;
+  width: fit-content;
+}
+
+.nav-pills .nav-link.active {
+  background-color: $header-color!important;
+}

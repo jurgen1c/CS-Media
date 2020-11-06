@@ -29,6 +29,7 @@ gem 'active_storage_validations'
 gem 'better_errors'
 
 
+
 # Use Active Storage variant
 gem 'image_processing'
 
