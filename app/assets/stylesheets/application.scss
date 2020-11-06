@@ -18,6 +18,14 @@ $bg-color: rgb(68, 65, 65);
 $header-color: rgb(196, 84, 32);
 $text-color: rgb(209, 204, 204);
 
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+}
+
 main {
   background: $bg-color;
   height: 100vh;
