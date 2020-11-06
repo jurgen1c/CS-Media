@@ -23,10 +23,10 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 
 gem 'active_storage_validations'
+gem 'aws-sdk-s3', require: false
 gem 'better_errors'
 gem 'bootstrap', '~> 5.0.0.alpha1'
 gem 'devise'
-gem 'aws-sdk-s3', require: false
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
 # Use Active Storage variant
