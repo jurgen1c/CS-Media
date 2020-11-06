@@ -16,6 +16,10 @@
 - Working with deployment to Heroku.
 - Working Amazon S3 services<br>
 
+## Video Presentation
+
+[Project Video Presentation](https://www.loom.com/share/8e31b4dad9964eaeab5b5325e7bb85e1)
+
 ## Live Demo
 
 [Project live website](https://crowd-sourced-media.herokuapp.com/)
