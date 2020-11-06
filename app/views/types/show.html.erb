@@ -1,6 +1,6 @@
 <div class="container-fluid h-100">
   <div class="row">
-    <% @type.articles.each do |article| %>
+    <% @type.articles.ordered_by_most_recent.each do |article| %>
       <div class="col-12 col-md-6 p-0 d-flex">
         <div class="half">
           <%= image_tag(article.cover, style: 'width: 100%; height: 100%') %>
