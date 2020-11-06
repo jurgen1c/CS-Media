@@ -59,34 +59,32 @@
 - Visit `http://localhost:3000`
 
 ### 📝 What you will find:
-  1. The user logs in to the app, Use: `sanad@sandoog.com` as email, and `123456` as password :)
+  # The user logs in to the app, Use: `sanad@sandoog.com` as email, and `123456` as password :)
    
-   <br>
    
     ![](app/assets/images/home.png)
-   <br>
-  2. The user is presented with the homepage that includes:
-       1. Top menu with links and search.
-       2. *Popular Articles* carousel in the centre .
-       3. Categories with backgrounds.
-       4. Categories pills with articles ordered by most recent
-       <br>
+
+  # The user is presented with the homepage that includes:
+       - Top menu with links and search.
+       - *Popular Articles* carousel in the centre .
+       - Categories with backgrounds.
+       - Categories pills with articles ordered by most recent
+
     ![](app/assets/images/article.png)
-    <br>
-  3. The *Article* section includes:
-       1. Nav tabs
-       2. First tab displays article content and comments + comment form
-       3. Second Article Sources
-       4. Third article reviews and new review form
-       5. Article author and info
-       
-        <br>
+    
+  # The *Article* section includes:
+       - Nav tabs
+       - First tab displays article content and comments + comment form
+       - Second Article Sources
+       - Third article reviews and new review form
+       - Article author and info
+
     ![](app/assets/images/user.png)
-  <br>
-  4. The user profile includes
-       1. User info
-       2. Followers
-       3. User Articles
+
+  # The user profile includes
+       - User info
+       - Followers
+       - User Articles
    
 ### Automated Tests
 
