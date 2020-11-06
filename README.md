@@ -64,25 +64,28 @@
    <br>
    
    ![](app/assets/images/home.png)
+   <br>
    2. The user is presented with the homepage that includes:
        1. Top menu with links and search.
        2. *Popular Articles* carousel in the centre .
        3. Categories with backgrounds.
        4. Categories pills with articles ordered by most recent
        
-       <br>
+    <br />
        
-       ![](app/assets/images/article.png)
+    ![](app/assets/images/article.png)
+    <br>
    3. The *Article* section includes:
        1. Nav tabs
        2. First tab displays article content and comments + comment form
        3. Second Article Sources
        4. Third article reviews and new review form
-       1. Article author and info
+       5. Article author and info
        
        <br>
        
-       ![](app/assets/images/user.png)
+  ![](app/assets/images/user.png)
+  <br>
    4. The user profile includes
        1. User info
        2. Followers
