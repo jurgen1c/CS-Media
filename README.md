@@ -8,16 +8,17 @@
 > Ruby's on Rails Crowd Sourced Media Website Project 
 
 ## Concept
->  As wikipedia define it: A Social networking sites allow users to share ideas, digital photos and videos, posts, and to inform others about online or real-world activities and events with people in their network. Depending on the social media platform, members may be able to contact any other member. In other cases, members can contact anyone they have a connection to, and subsequently anyone that contact has a connection to, and so on. The success of social networking services can be seen in their dominance in society today, with Facebook having a massive 2.13 billion active monthly users and an average of 1.4 billion daily active users in 2017.[5] LinkedIn, a career-oriented social-networking service, generally requires that a member personally know another member in real life before they contact them online. Some services require members to have a preexisting connection to contact other members.
+>  The concept behind this project is to combat the slew of fake news nad general mistrust they have created in the publlic eye. To achieve this my app require any user to add atleast one source, though more can be added, to justify their articles content, this can be a video, audio or pdf. Further more users can create reviews for articles either verifying whats is stated or exposeing it as misinformation, all reviews can have attached files as well. Finally user may vote for articles with good verified content to promote a more secure article heirarchy. 
 ## Usage
 
 - This project intends to practice my skills building a full working MVP;
 - Prepare data architecture documentation;
-- Work with deployment to Heroku.<br>
+- Working with deployment to Heroku.
+- Working Amazon S3 services<br>
 
 ## Live Demo
 
-[Project live website](https://evening-mountain-82652.herokuapp.com/)
+[Project live website](https://crowd-sourced-media.herokuapp.com/)
 
 
 
@@ -58,33 +59,30 @@
    
    <br>
    
-   ![](app/assets/images/login.png)
+   ![](app/assets/images/home.png)
    2. The user is presented with the homepage that includes:
        1. Top menu with links and search.
-       2. *Opinions* tab in the centre .
-       3. Right-side section with *Who to follow.
+       2. *Popular Articles* carousel in the centre .
+       3. Categories with backgrounds.
+       4. Categories pills with articles ordered by most recent
        
        <br>
        
-       ![](app/assets/images/opinions.png)
-   3. The *Opinions* section includes:
-       1. Simple form for creating a opinion.
-       2. List of all opinions (sorted by most recent) that display opinion text and author details.
-   4. The *Who to follow* section includes:
-       1. List of profiles that are not followed by the logged-in user (ordered by most recently added).
-   5. When the user opens the profile page, they can see:
-       1. Left-side menu (includes only links to pages that are implemented).
-       2. Cover picture and *Opinions* tab in the centre.
-       3. Right-side section with *Profile detailed info.*
-   6. The *Profile detailed info* section includes:
-       1. User photo.
-       2. Button to follow a user.
-       3. Stats: total number of opinions, number of followers and number of following users.
-       4. List of people who follow this user.
+       ![](app/assets/images/article.png)
+   3. The *Article* section includes:
+       1. Nav tabs
+       2. First tab displays article content and comments + comment form
+       3. Second Article Sources
+       4. Third article reviews and new review form
+       1. Article author and info
        
        <br>
        
-       ![](app/assets/images/profiles.png)
+       ![](app/assets/images/user.png)
+   4. The user profile includes
+       1. User info
+       2. Followers
+       3. User Articles
    
 ### Automated Tests
 
@@ -100,16 +98,16 @@
 - Ruby on Rails 6.0.3
 
 ### Deployed On:
-- Heroku         
+- Heroku
+- Amazon S3         
 
 ## 👤 Authors
 
 
 👤 **Jurgen Clausen Gutierrez**
 
-- Github: [@sanadwj](https://github.com/sanadwj)
-- Twitter: [@sandooog](https://twitter.com/sandooog)
-- Linkedin: [sanad-abujbara](https://linkedin.com/in/sanad-abujbara)
+- Github: [@jurgen1c](https://github.com/jurgen1c)
+- LinkedIn: [jurgen-clausen](https://www.linkedin.com/in/jurgen-clausen-2740061a9/)
 
 
 ## 🤝 Contributing

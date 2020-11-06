@@ -1,38 +1,51 @@
 <div class="container my-2">
   <div class="row">
-    <div class="col-3">
+    <div class="col-12 col-md-3 my-2">
       <%= image_tag(@user.avatar_thumbnail, class: 'rounded-circle') if @user.avatar.attached? %>
     </div>
-    <div class="col-9">
-      <h1><%= @user.name %></h1>
-      <%= @user.username %>
+    <div class="col-12 col-md-9 my-2">
+      <h1 class="my-title"><%= @user.name %></h1>
+      <h5 class="my-text">Username: <%= @user.username %></h5>
       <br />
-      <%= @user.bio %>
+      <h6 class="my-color">Bio:</h6>
+      <p class="my-text">
+        <%= @user.bio %>
+      </p>
+      <%= nu_display(current_user, @user) %>
     </div>
   </div>
 </div>
-<div class="flex-wrap">
+<div class="flex-wrap my-background m-3">
+  <h2 class="my-title">Followers: </h2>
   <% @user.follows.each do |follow| %>
-    <div class="card">
-      <h3>
-        <%= follow.name%>
+    <div class="my-1 p-1">
+      <h3 class="p-1">
+        <%=link_to follow.name, follow, class: 'my-subtitle'%>
       </h3>
-      <h3>
-        <%= follow.username%>
+      <h3 class="my-text">
+        Username: <%= follow.username%>
       </h3>
     </div>
     <%= nu_display(current_user, follow)%>
   <%end%>
 </div>
-<div>
+<div class="container-fluid my-background">
+  <h2 class="my-title">Articles: </h2>
   <div class="row">
     <% @user.articles.each do |article| %> 
-      <h2><%= link_to article.title, article %></h2>
-      <%= article.votes.count %>
-      <br>
-      <%= image_tag(article.cover) %>
-      <hr>
-      <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
+      <div class="col-12 col-md-6">
+        <%= image_tag(article.cover_thumbnail, class: 'img-fluid') %>
+      </div>
+      <div class="col-12 col-md-6">
+        <h2 class="my-title m-2 p-1">Title: <br /><%= link_to article.title, article %></h2>
+        <p class="m-2 p-3">
+          <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
+        </p>
+        <div class="d-flex">
+          <p class="my-text m-2 p-1">Votes: <%= article.votes.count %></p>
+          <p class="my-text m-2 p-1">Views: <%= article.views%></p>
+        </div>
+      </div>
     <%end%>
   </div>
 </div>

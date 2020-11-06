@@ -31,7 +31,7 @@
   </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+  <div class="tab-pane fade show active my-background" id="home" role="tabpanel" aria-labelledby="home-tab">
     <div class="p-3 m-3">
       <h1 class="my-title"><%= @article.title %></h1>
       <div class="btn-group" role="group" aria-label="Basic example">
@@ -59,7 +59,7 @@
       </div>
     </div>
   </div>
-  <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+  <div class="tab-pane fade my-background" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="container p-3 m-3">
       <%=@article.sources.each do |source| %>
         <div class="row">
@@ -70,7 +70,7 @@
       <%end%>
     </div>
   </div>
-  <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+  <div class="tab-pane fade my-background" id="contact" role="tabpanel" aria-labelledby="contact-tab">
     <div class="container p-2">
       <%= render partial: 'reviews/review', collection: @article.reviews %>
       <div class="row">
