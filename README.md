@@ -61,8 +61,7 @@
 ### 📝 What you will find:
   1. The user logs in to the app, Use: `sanad@sandoog.com` as email, and `123456` as password :)
    
-   
-    ![](app/assets/images/home.png)
+![](app/assets/images/home.png)
 
   2. The user is presented with the homepage that includes:
        - Top menu with links and search.
@@ -70,7 +69,7 @@
        - Categories with backgrounds.
        - Categories pills with articles ordered by most recent
 
-    ![](app/assets/images/article.png)
+![](app/assets/images/article.png)
     
   3. The *Article* section includes:
        - Nav tabs
@@ -79,7 +78,7 @@
        - Third article reviews and new review form
        - Article author and info
 
-    ![](app/assets/images/user.png)
+![](app/assets/images/user.png)
 
   4. The user profile includes
        - User info
