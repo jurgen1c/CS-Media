@@ -39,7 +39,7 @@
  
  - Copy this code : 
         ```
-        git clone git@github.com:sanadwj/Opinions.git
+        git clone https://github.com/jurgen1c/CS-Media.git
         ```
  - Copy this code to install the gems :
          ```
