@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  
+
   validates :name, :bio, :email, :password, presence: true
   validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
@@ -17,8 +17,8 @@ class User < ApplicationRecord
   after_commit :add_default_avatar, on: %i[create update]
 
   def follows
-    follows_array = followings.map { |m_following| m_following.follow }
-    follows_array += inverse_followings.map { |i_following| i_following.user }
+    follows_array = followings.map(&:follow)
+    follows_array += inverse_followings.map(&:user)
     follows_array.compact
   end
 
@@ -27,22 +27,22 @@ class User < ApplicationRecord
   end
 
   def avatar_thumbnail
-    avatar.variant(resize: "150X150!").processed
+    avatar.variant(resize: '150X150!').processed
   end
 
   private
 
   def add_default_avatar
-    unless avatar.attached?
-      avatar.attach(
-        io: File.open(
-          Rails.root.join(
-            'app', 'assets', 'images', 'default_profile.jpg'
-          )
-        ), 
-        filename: 'default_profile.jpg',
-        content_type: 'image/jpg'
-      )
-    end
+    return if avatar.attached?
+
+    avatar.attach(
+      io: File.open(
+        Rails.root.join(
+          'app', 'assets', 'images', 'default_profile.jpg'
+        )
+      ),
+      filename: 'default_profile.jpg',
+      content_type: 'image/jpg'
+    )
   end
 end

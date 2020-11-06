@@ -5,22 +5,22 @@ class CommentsController < ApplicationController
     @comment.user = current_user
 
     if @comment.save
-      redirect_back, notice: 'Comment was successfully created.'
+      flash[:success] = 'Comment was successfully created.'
     else
-      redirect_back, alert: @comment.errors.full_messages.join('. ').to_s
+      flash[:error] = @comment.errors.full_messages.join('. ').to_s
     end
+    redirect_back(fallback_location: root_path)
   end
 
   def destroy
     @comment = Comment.find_by(article_id: params[:id])
     if @comment.destroy
       flash[:success] = 'Object was successfully deleted.'
-      redirect_back
     else
       flash[:error] = 'Something went wrong'
     end
+    redirect_back(fallback_location: root_path)
   end
-  
 
   private
 

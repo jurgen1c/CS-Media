@@ -16,22 +16,22 @@ class TypesController < ApplicationController
   def show
     @type = Type.find(params[:id])
   end
-  
+
   def search
-    @articles = Article.where("title LIKE ?", "%" + params[:q] + "%")
+    @articles = Article.where('title LIKE ?', "%#{params[:q]}%")
   end
-  
+
   def new
     @type = Type.new
   end
-  
+
   def create
     type = Type.new(type_params)
     if type.save
-      flash[:success] = "Type successfully created"
+      flash[:success] = 'Type successfully created'
       redirect_to type
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = 'Something went wrong'
       render 'new'
     end
   end
@@ -46,14 +46,12 @@ class TypesController < ApplicationController
       redirect_to reviews_url
     end
   end
-  
+
   private
 
-  def set_type
-  end
+  def set_type; end
 
   def type_params
     params.require(:review).permit(:name, :background)
   end
-  
 end

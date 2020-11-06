@@ -5,7 +5,7 @@ class Article < ApplicationRecord
   has_many :votes, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :reviewers, through: :reviews
-  has_many :sources,  inverse_of: :article
+  has_many :sources, inverse_of: :article
   has_many :comments
 
   has_one_attached :cover
@@ -21,22 +21,22 @@ class Article < ApplicationRecord
   scope :ordered_by_most_recent, -> { order(created_at: :desc) }
 
   def cover_thumbnail
-    cover.variant(resize: "650X300!").processed
+    cover.variant(resize: '650X300!').processed
   end
 
   private
 
   def add_default_cover
-    unless cover.attached?
-      cover.attach(
-        io: File.open(
-          Rails.root.join(
-            'app', 'assets', 'images', 'covers', 'default_cover.jpg'
-          )
-        ), 
-        filename: 'default_cover.jpg',
-        content_type: 'image/jpg'
-      )
-    end
+    return if cover.attached?
+
+    cover.attach(
+      io: File.open(
+        Rails.root.join(
+          'app', 'assets', 'images', 'covers', 'default_cover.jpg'
+        )
+      ),
+      filename: 'default_cover.jpg',
+      content_type: 'image/jpg'
+    )
   end
 end

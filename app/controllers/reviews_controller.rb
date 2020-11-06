@@ -1,13 +1,12 @@
 class ReviewsController < ApplicationController
-  
   def create
     @review = current_user.reviews.new(review_params)
     @review.article_id = params[:article_id]
     if @review.save
-      flash[:success] = "Object successfully created"
+      flash[:success] = 'Object successfully created'
       redirect_to article_path(@review.article_id)
     else
-      flash[:error] = "Something went wrong"
+      flash[:error] = 'Something went wrong'
     end
   end
 
@@ -20,11 +19,10 @@ class ReviewsController < ApplicationController
       flash[:error] = 'Something went wrong'
     end
   end
-  
+
   private
 
   def review_params
     params.require(:review).permit(:title, :body)
   end
-  
 end
