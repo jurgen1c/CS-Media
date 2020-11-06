@@ -59,12 +59,12 @@
 - Visit `http://localhost:3000`
 
 ### 📝 What you will find:
-  # The user logs in to the app, Use: `sanad@sandoog.com` as email, and `123456` as password :)
+  1. The user logs in to the app, Use: `sanad@sandoog.com` as email, and `123456` as password :)
    
    
     ![](app/assets/images/home.png)
 
-  # The user is presented with the homepage that includes:
+  2. The user is presented with the homepage that includes:
        - Top menu with links and search.
        - *Popular Articles* carousel in the centre .
        - Categories with backgrounds.
@@ -72,7 +72,7 @@
 
     ![](app/assets/images/article.png)
     
-  # The *Article* section includes:
+  3. The *Article* section includes:
        - Nav tabs
        - First tab displays article content and comments + comment form
        - Second Article Sources
@@ -81,7 +81,7 @@
 
     ![](app/assets/images/user.png)
 
-  # The user profile includes
+  4. The user profile includes
        - User info
        - Followers
        - User Articles
