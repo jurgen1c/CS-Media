@@ -1,12 +1,11 @@
-<li>
-  <div class="card">
-    <div class="m-1">
-      <%= user.avatar %>
-    </div>
-    Name: <%= user.name %>
-    <a class="btn btn-primary">
-      <%= link_to 'See Profile', user_path(user), class: 'profile-link'%>
-    </a>
+
+<div class="col-6 col-md-4 my-2">
+  <div class="flex-column justify-content-evenly m-1">
+    <%= image_tag(user.avatar_thumbnail, class: 'rounded-circle m-1') %>
+    <h2 class=" my-subtitle"> 
+      Name: <%= user.name %>
+    </h2>
+    <%= link_to 'See Profile', user_path(user), class: 'btn btn-outline-primary'%>
     <%= nu_display(current_user, user)%>
   </div>
-</li>
+</div>

@@ -49,23 +49,16 @@
       <hr>
       <p class="my-text"><%= @article.body%></p>
     </div>
-    <div>
-      <%= render partial: 'comments/comment', collection: @article.comments %>
-      <div class="my-width">
-        <%= form_for(@article.comments.new, url: article_comments_path(@article)) do |form| %>
-          <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
-          <%= form.submit 'Comment', class: 'btn btn-outline-primary my-text my-2' %>
-        <% end %>
-      </div>
-    </div>
   </div>
   <div class="tab-pane fade my-background" id="profile" role="tabpanel" aria-labelledby="profile-tab">
     <div class="container p-3 m-3">
-      <%=@article.sources.each do |source| %>
+      <%@article.sources.each do |source| %>
         <div class="row">
           <h2 class="my-title"><%= source.title%></h2>
           <hr>
-          <%=source.body %>
+          <p>
+            <%=source.body %>
+          </p>
         </div>
       <%end%>
     </div>
@@ -82,5 +75,15 @@
       </div>
     </div>
   </div>
+</div>
+<div>
+  <h2 class="my-title ml-4 mt-2">Comments</h2>
+  <%= render partial: 'comments/comment', collection: @article.comments %>
+</div>
+<div class="my-width">
+  <%= form_for(@article.comments.new, url: article_comments_path(@article)) do |form| %>
+    <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
+    <%= form.submit 'Comment', class: 'btn btn-outline-primary my-text my-2' %>
+  <% end %>
 </div>
 <%= link_to 'Back', articles_path, class: 'btn btn-outline-primary m-3' %>
