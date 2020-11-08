@@ -1,0 +1,42 @@
+<div class="row p-5">
+  <div class="col-9">
+    <div class="tab-content" id="v-pills-tabContent">
+      <div class="tab-pane fade show active" id="v-pills-home6" role="tabpanel" aria-labelledby="v-pills-home6-tab">
+        <%=link_to image_tag(type.articles.ordered_by_most_recent.first.cover_thumbnail), type.articles.ordered_by_most_recent.first %>
+        <br/>
+        <p class="my-text w-75 ml-3"><%= truncate(strip_tags(type.articles.ordered_by_most_recent.first.rich_text_body.to_s), length: 150) %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-profile6" role="tabpanel" aria-labelledby="v-pills-profile6-tab">
+        <%=link_to image_tag(type.articles.ordered_by_most_recent.second.cover_thumbnail), type.articles.ordered_by_most_recent.second %>
+        <br/>
+        <p class="my-text w-75 ml-3"><%= truncate(strip_tags(type.articles.ordered_by_most_recent.second.rich_text_body.to_s), length: 150) %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-messages6" role="tabpanel" aria-labelledby="v-pills-messages6-tab">
+        <%=link_to image_tag(type.articles.ordered_by_most_recent.third.cover_thumbnail), type.articles.ordered_by_most_recent.third %>
+        <br/>
+        <p class="my-text w-75 ml-3"><%= truncate(strip_tags(type.articles.ordered_by_most_recent.third.rich_text_body.to_s), length: 150) %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-settings6" role="tabpanel" aria-labelledby="v-pills-settings6-tab">
+        <%=link_to image_tag(type.articles.ordered_by_most_recent.fourth.cover_thumbnail), type.articles.ordered_by_most_recent.fourth %>
+        <br/>
+        <p class="my-text w-75 ml-3"><%= truncate(strip_tags(type.articles.ordered_by_most_recent.fourth.rich_text_body.to_s), length: 150) %></p>
+      </div>
+      <div class="tab-pane fade" id="v-pills-last6" role="tabpanel" aria-labelledby="v-pills-last6-tab">
+        <%=link_to image_tag(type.articles.ordered_by_most_recent.fifth.cover_thumbnail), type.articles.ordered_by_most_recent.fifth %>
+        <br/>
+        <p class="my-text w-75 ml-3"><%= truncate(strip_tags(type.articles.ordered_by_most_recent.fifth.rich_text_body.to_s), length: 150) %></p>
+      </div>
+    </div>
+  </div>
+  <div class="col-3">
+    <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+      <a class="nav-link active" id="v-pills-home6-tab" data-toggle="pill" href="#v-pills-home6" role="tab" aria-controls="v-pills-home6" aria-selected="true">
+        <%=type.articles.ordered_by_most_recent.first.title%>
+      </a>
+      <a class="nav-link" id="v-pills-profile6-tab" data-toggle="pill" href="#v-pills-profile6" role="tab" aria-controls="v-pills-profile6" aria-selected="false"><%=type.articles.ordered_by_most_recent.second.title%></a>
+      <a class="nav-link" id="v-pills-messages6-tab" data-toggle="pill" href="#v-pills-messages6" role="tab" aria-controls="v-pills-messages6" aria-selected="false"><%=type.articles.ordered_by_most_recent.third.title%></a>
+      <a class="nav-link" id="v-pills-settings6-tab" data-toggle="pill" href="#v-pills-settings6" role="tab" aria-controls="v-pills-settings6" aria-selected="false"><%=type.articles.ordered_by_most_recent.fourth.title%></a>
+      <a class="nav-link" id="v-pills-last6-tab" data-toggle="pill" href="#v-pills-last6" role="tab" aria-controls="v-pills-last6" aria-selected="false"><%=type.articles.ordered_by_most_recent.fifth.title%></a>
+    </div>
+  </div>
+</div>
