@@ -46,14 +46,24 @@
               <%= link_to 'Travel', type_path(7), class: "nav-link mr-md-5" %>
             </li>
             <% if current_user %>
-              <li class="nav-item">
-                <%= link_to 'Create Article |', new_article_path, class: 'nav-link ml-md-5' %>
+              <li class="nav-item dropdown ml-md-5">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  <%= current_user.name.capitalize %>
+                </a>
+                <div class="dropdown-menu pr-3" aria-labelledby="navbarDropdown">
+                  <%= link_to 'Create Article', new_article_path, class: 'dropdown-item' %>
+                  <%= link_to "#{current_user.name.capitalize}", user_path(current_user.id), class: "dropdown-item"%>
+                  <div class="dropdown-divider"></div>
+                  <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+                </div>
               </li>
-              <li class="nav-item">
-                <%= link_to "#{current_user.name.capitalize}", user_path(current_user.id), class: "nav-link"%>
-              </li>
-              <li class="nav-item">
-                <%= link_to '| Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
+              <li class="nav-item dropdown" data-behavior="notifications">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-behavior='notifications-link'>
+                  <i class="far fa-bell my-subtitle"></i><span data-behavior='unread-count'></span>
+                </a>
+                <div class="dropdown-menu pr-3" aria-labelledby="navbarDropdown" data-behavior='notification-items'>
+                  
+                </div>
               </li>
             <% else %>
               <li class="nav-item">
@@ -68,7 +78,7 @@
               <button class="btn-sm btn-outline-primary my-2 my-sm-0" type="submit">Search</button>
             </form>
           </div>
-          <a class="nav-link ml-1" href="#searchForm" data-target="#searchForm" data-toggle="collapse">
+          <a class="nav-link" href="#searchForm" data-target="#searchForm" data-toggle="collapse">
             <i class="fas fa-search my-subtitle"></i>
           </a>
       </nav>

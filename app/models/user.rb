@@ -8,6 +8,7 @@ class User < ApplicationRecord
   validates :avatar, content_type: ['image/png', 'image/jpg', 'image/jpeg']
 
   has_one_attached :avatar
+  has_many :notifications, foreign_key: :recipient_id, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :votes, dependent: :destroy
   has_many :comments, dependent: :destroy

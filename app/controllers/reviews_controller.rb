@@ -3,6 +3,7 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.new(review_params)
     @review.article_id = params[:article_id]
     if @review.save
+      Notification.create(recipient: @review.article.author, actor: current_user, action: 'reviewed', notifiable: @review)
       flash[:success] = 'Object successfully created'
       redirect_to article_path(@review.article_id)
     else

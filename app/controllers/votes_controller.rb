@@ -2,6 +2,7 @@ class VotesController < ApplicationController
   def create
     @vote = current_user.votes.new(article_id: params[:article_id])
     if @vote.save
+      Notification.create(recipient: @vote.voter, actor: current_user, action: 'voted', notifiable: @vote)
       flash[:success] = 'You Upvoted Article'
     else
       flash[:error] = 'You can not Upvote this article'

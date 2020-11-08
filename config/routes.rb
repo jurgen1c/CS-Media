@@ -11,5 +11,10 @@ Rails.application.routes.draw do
   resources :types, only: [:show]
   resources :users
   resources :followings, only: [:create, :destroy]
+  resources :notifications do
+    collection do
+      post :mark_as_read
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
