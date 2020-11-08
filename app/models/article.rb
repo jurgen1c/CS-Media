@@ -1,7 +1,7 @@
 class Article < ApplicationRecord
   belongs_to :author, class_name: 'User', foreign_key: :user_id
-  belongs_to :type
-
+  belongs_to :type, class_name: 'Type', foreign_key: :type_id
+  #20201027170000
   has_many :votes, dependent: :destroy
   has_many :reviews, dependent: :destroy
   has_many :reviewers, through: :reviews

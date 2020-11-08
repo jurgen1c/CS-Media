@@ -1,17 +1,11 @@
 class UsersController < ApplicationController
   before_action :authenticate_user!
   def index
-    @users = User.all
+    @users = User.includes(avatar_attachment: :blob).all
   end
 
   def show
-    @user = User.find(params[:id])
+    @user = User.includes(:articles, :followings, avatar_attachment: :blob, articles: [{cover_attachment: :blob}, :rich_text_body, :votes], followings: :follow).find(params[:id])
     timeline_arts
-  end
-
-  private
-
-  def timeline_arts
-    @timeline_arts ||= Article.all.ordered_by_most_recent.includes(:author)
   end
 end

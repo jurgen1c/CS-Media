@@ -89,12 +89,10 @@ ActiveRecord::Schema.define(version: 2020_10_27_193322) do
 
   create_table "sources", force: :cascade do |t|
     t.bigint "article_id"
-    t.bigint "review_id"
     t.string "title"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["article_id"], name: "index_sources_on_article_id"
-    t.index ["review_id"], name: "index_sources_on_review_id"
   end
 
   create_table "types", force: :cascade do |t|
@@ -128,10 +126,13 @@ ActiveRecord::Schema.define(version: 2020_10_27_193322) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "articles", "types"
   add_foreign_key "articles", "users"
+  add_foreign_key "comments", "articles"
   add_foreign_key "comments", "users"
   add_foreign_key "followings", "users"
   add_foreign_key "followings", "users", column: "follow_id"
+  add_foreign_key "reviews", "articles"
   add_foreign_key "reviews", "users"
   add_foreign_key "sources", "articles"
   add_foreign_key "votes", "articles"

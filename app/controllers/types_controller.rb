@@ -2,23 +2,23 @@ class TypesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @types = Type.all
-    @popular = Vote.popular
-    @sports = Type.find_by(name: 'Sports')
-    @entertainment = Type.find_by(name: 'Entertainment')
-    @travel = Type.find_by(name: 'Travel')
-    @politics = Type.find_by(name: 'Politics')
-    @tech = Type.find_by(name: 'Tech')
-    @business = Type.find_by(name: 'Business')
-    @fashion = Type.find_by(name: 'Fashion')
+    @types = Type.includes(background_attachment: :blob).all
+    @popular = Vote.popular.includes(:article, article: [:rich_text_body, {cover_attachment: :blob}])
+    @sports = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 1)
+    @entertainment = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 2)
+    @travel = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 7)
+    @politics = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 4)
+    @tech = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 3)
+    @business = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 5)
+    @fashion = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 6)
   end
 
   def show
-    @type = Type.find(params[:id])
+    @type = Type.includes(:articles, articles: [:votes, {cover_attachment: :blob}, :rich_text_body, :author]).find(params[:id])
   end
 
   def search
-    @articles = Article.where('title LIKE ?', "%#{params[:q]}%")
+    @articles = Article.with_rich_text_body.includes(cover_attachment: :blob).where('title LIKE ?', "%#{params[:q]}%")
   end
 
   def new
