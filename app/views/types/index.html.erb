@@ -13,7 +13,7 @@
     <%end%>
   </div>
 </section>
-<section class="container-fluid pt-3 w-100 my-background">
+<section class="container-fluid my-3 pt-3 w-100 my-background">
   <ul class="nav nav-pills mb-4 nav-justified" id="pills-tab" role="tablist">
     <li class="nav-item" role="presentation">
       <a class="nav-link active" id="pills-sports-tab" data-toggle="pill" href="#pills-sports" role="tab" aria-controls="pills-sports" aria-selected="true">Sports</a>
@@ -40,128 +40,51 @@
   <div class="tab-content" id="pills-tabContent">
     <div class="tab-pane fade show active" id="pills-sports" role="tabpanel" aria-labelledby="pills-sports-tab">
       <div class="container">
-        <%@sports.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @travel } %>
+        </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-entertainment" role="tabpanel" aria-labelledby="pills-entertainment-tab">
       <div class="container">
-        <%@entertainment.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @entertainment } %>
+        </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-travel" role="tabpanel" aria-labelledby="pills-travel-tab">
       <div class="container">
-        <%@travel.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @travel } %>
+        </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-politics" role="tabpanel" aria-labelledby="pills-politics-tab">
       <div class="container">
-        <%@politics.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @politics } %>
+        </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-tech" role="tabpanel" aria-labelledby="pills-tech-tab">
       <div class="container">
-        <%@tech.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @tech } %>
+        </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab">
       <div class="container">
-        <%@business.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @business } %>
+        </div>
       </div>
     </div>
     <div class="tab-pane fade" id="pills-fashion" role="tabpanel" aria-labelledby="pills-fashion-tab">
       <div class="container">
-        <%@fashion.ordered_by_most_recent.each do |article|%>
-          <div class="row mt-3">
-            <div class="col-8">
-              <%= image_tag(article.cover_thumbnail) %>
-            </div>
-            <div class="col-4">
-              <%= link_to article.title, article %>
-              <br />
-              <%= vote_or_dislike_btn(article) %>
-              <br>
-              <%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %>
-            </div>
-          </div>
-        <%end%>
+        <div class="row mt-3">
+          <%= render partial: "pills_content", locals: { type: @fashion } %>
+        </div>
       </div>
     </div>
   </div>

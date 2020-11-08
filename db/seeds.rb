@@ -94,7 +94,55 @@ Article.create(
   article = Article.create!(
     title: Faker::Lorem.sentence, 
     user_id: User.first.id, 
-    type_id: "#{rand(1..7)}", 
+    type_id: '5', 
+    body: Faker::Lorem.paragraph_by_chars(number: 550),
+    sources_attributes: [
+      {
+        title: Faker::Lorem.sentence,
+        body: Faker::Lorem.paragraph_by_chars(number: 300)
+      }
+    ]
+  )
+  article.sources.first.article_id = article.id
+end
+
+7.times do |_i|
+  article = Article.create!(
+    title: Faker::Lorem.sentence, 
+    user_id: User.first.id, 
+    type_id: '6', 
+    body: Faker::Lorem.paragraph_by_chars(number: 550),
+    sources_attributes: [
+      {
+        title: Faker::Lorem.sentence,
+        body: Faker::Lorem.paragraph_by_chars(number: 300)
+      }
+    ]
+  )
+  article.sources.first.article_id = article.id
+end
+
+7.times do |_i|
+  article = Article.create!(
+    title: Faker::Lorem.sentence, 
+    user_id: User.first.id, 
+    type_id: '7', 
+    body: Faker::Lorem.paragraph_by_chars(number: 550),
+    sources_attributes: [
+      {
+        title: Faker::Lorem.sentence,
+        body: Faker::Lorem.paragraph_by_chars(number: 300)
+      }
+    ]
+  )
+  article.sources.first.article_id = article.id
+end
+
+7.times do |_i|
+  article = Article.create!(
+    title: Faker::Lorem.sentence, 
+    user_id: User.first.id, 
+    type_id: '4', 
     body: Faker::Lorem.paragraph_by_chars(number: 550),
     sources_attributes: [
       {
@@ -110,7 +158,7 @@ end
   article = Article.new(
     title: Faker::Lorem.sentence, 
     user_id: User.second.id, 
-    type_id: "#{rand(1..7)}", 
+    type_id: '2', 
     body: Faker::Lorem.paragraph_by_chars(number: 600),
     sources_attributes: [
       {
@@ -127,7 +175,7 @@ end
   article = Article.new(
     title: Faker::Lorem.sentence, 
     user_id: User.third.id, 
-    type_id: "#{rand(1..7)}", 
+    type_id: '1', 
     body: Faker::Lorem.paragraph_by_chars(number: 450),
     sources_attributes: [
       {
@@ -144,7 +192,7 @@ end
   article = Article.new(
     title: Faker::Lorem.sentence, 
     user_id: User.fourth.id, 
-    type_id: "#{rand(1..7)}", 
+    type_id: '3', 
     body: Faker::Lorem.paragraph_by_chars(number: 500),
     sources_attributes: [
       {

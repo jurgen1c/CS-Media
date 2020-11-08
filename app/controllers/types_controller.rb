@@ -2,15 +2,16 @@ class TypesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @types = Type.includes(background_attachment: :blob).limit(4)
+    @types = Type.includes(background_attachment: :blob).all
+    @type1 = @types.first
     @popular = Vote.popular.includes(:article, article: [:rich_text_body, {cover_attachment: :blob}])
-    @sports = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 1)
-    @entertainment = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 2)
-    @travel = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 7)
-    @politics = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 4)
-    @tech = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 3)
-    @business = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 5)
-    @fashion = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 6)
+    @sports = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(1)
+    @entertainment = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(2)
+    @travel = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(7)
+    @politics = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(4)
+    @tech = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(3)
+    @business = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(5)
+    @fashion = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(6)
   end
 
   def show
