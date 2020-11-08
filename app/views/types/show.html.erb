@@ -1,37 +1,10 @@
 <div class="container-fluid h-100">
   <div class="row">
-    <% @type.articles.each do |article| %>
-      <% count = 1 %>
-      <% if count.even? %>
-        <div class="col-12 col-md-6 p-0 d-flex">
-          <div class="half">
-            <%= image_tag(article.cover, style: 'width: 100%; height: 100%') %>
-          </div>
-          <div class="half px-1">
-            <h3><%= link_to article.title, article, class: 'my-subtitle pl-1' %></h3>
-            <h5><%= link_to "Author: #{article.author.name}", user_path(article.author.id), class: 'my-subtitle pl-1'%></h5>
-            <p class="my-text"><%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %></p>
-            <%= vote_or_dislike_btn(article) %>
-          </div>
-        </div>
-        <%count += 1%>
-        <%end%>
-        
+    <% @type.articles.each_slice(2) do |a1, b1| %>
+      <%= count_type(a1, @count) %>
+      <%= count_type(b1, @count) %>
+      <% @count += 1 %>
     <%end%>
-  </div>
-  <div class="row">
-    <% @type.articles.each do |article| %>
-      <div class="col-12 col-md-6 p-0 d-flex">
-        <div class="half px-1">
-          <h3><%= link_to article.title, article, class: 'my-subtitle pl-1' %></h3>
-          <h5><%= link_to "Author: #{article.author.name}", user_path(article.author.id), class: 'my-subtitle pl-1'%></h5>
-          <p class="my-text"><%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %></p>
-          <%= vote_or_dislike_btn(article) %>
-        </div>
-        <div class="half">
-          <%= image_tag(article.cover, style: 'width: 100%; height: 100%') %>
-        </div>
-      </div>
-    <%end%>
+      
   </div>
 </div>

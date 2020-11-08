@@ -2,7 +2,7 @@ class TypesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @types = Type.includes(background_attachment: :blob).all
+    @types = Type.includes(background_attachment: :blob).limit(4)
     @popular = Vote.popular.includes(:article, article: [:rich_text_body, {cover_attachment: :blob}])
     @sports = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 1)
     @entertainment = Article.with_rich_text_body.includes(:votes, cover_attachment: :blob).where(type_id: 2)
@@ -14,6 +14,7 @@ class TypesController < ApplicationController
   end
 
   def show
+    @count = 1
     @type = Type.includes(:articles, articles: [:votes, {cover_attachment: :blob}, :rich_text_body, :author]).find(params[:id])
   end
 
