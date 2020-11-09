@@ -11,6 +11,7 @@ require("@rails/activestorage").start()
 require("channels")
 require('./nested-forms/addFields')
 require('./nested-forms/removeFields')
+require('notificactions.js')
 //= require jquery3
 //= require popper
 //= require bootstrap-sprockets

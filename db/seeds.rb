@@ -232,6 +232,6 @@ end
 2.times do |_i|
   user = 1
   vote = Vote.create(user_id: user, article_id: 22)
-  Notification.create(recipient: vote.voter, actor_id: 3, action:'voted', notifiable: vote)
+  Notification.create(recipient: vote.article.author, actor_id: vote.voter, action:'voted', notifiable: vote)
   user += 1
 end
