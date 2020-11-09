@@ -35,4 +35,4 @@ class Notifications {
   }
 }
 
-jQuery(() => new Notifications);
+window.addEventListener("turbolinks:load", jQuery(() => new Notifications));
