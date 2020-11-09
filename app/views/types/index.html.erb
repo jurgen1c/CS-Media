@@ -1,0 +1,91 @@
+<section class="container-fluid my-background">
+  <div class="row">
+    <div class="col-12 p-0 m-0">
+      <%= render 'popular_carousel'%>
+    </div>
+  </div>
+  <div class="row">
+    <% @types.first(4).each do |type| %>
+      <div class="col-12 col-md-3 p-0 position-relative">
+        <h3 class="position-absolute border-bottom m-2"><%=link_to type.name, type, class: 'my-title'%></h3>
+        <%= image_tag(type.background, style: 'height: 100%; width: 100%')%>
+      </div>
+    <%end%>
+  </div>
+</section>
+<section class="container-fluid my-3 pt-3 w-100 my-background">
+  <ul class="nav nav-pills mb-4 nav-justified" id="pills-tab" role="tablist">
+    <li class="nav-item" role="presentation">
+      <a class="nav-link active" id="pills-sports-tab" data-toggle="pill" href="#pills-sports" role="tab" aria-controls="pills-sports" aria-selected="true">Sports</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-entertainment-tab" data-toggle="pill" href="#pills-entertainment" role="tab" aria-controls="pills-entertainment" aria-selected="false">Entertainment</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-travel-tab" data-toggle="pill" href="#pills-travel" role="tab" aria-controls="pills-travel" aria-selected="false">Travel</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-politics-tab" data-toggle="pill" href="#pills-politics" role="tab" aria-controls="pills-politics" aria-selected="false">Politics</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-tech-tab" data-toggle="pill" href="#pills-tech" role="tab" aria-controls="pills-tech" aria-selected="false">Tech</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-business-tab" data-toggle="pill" href="#pills-business" role="tab" aria-controls="pills-business" aria-selected="false">Business</a>
+    </li>
+    <li class="nav-item" role="presentation">
+      <a class="nav-link" id="pills-fashion-tab" data-toggle="pill" href="#pills-fashion" role="tab" aria-controls="pills-fashion" aria-selected="false">Fashion</a>
+    </li>
+  </ul>
+  <div class="tab-content" id="pills-tabContent">
+    <div class="tab-pane fade show active" id="pills-sports" role="tabpanel" aria-labelledby="pills-sports-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: "sports_pills_content", locals: { type: @travel } %>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-entertainment" role="tabpanel" aria-labelledby="pills-entertainment-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: "ent_pills_content", locals: { type: @entertainment } %>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-travel" role="tabpanel" aria-labelledby="pills-travel-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: 'travel_pills_content', locals: { type: @travel }%>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-politics" role="tabpanel" aria-labelledby="pills-politics-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: 'politics_pills_content', locals: { type: @politics }%>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-tech" role="tabpanel" aria-labelledby="pills-tech-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: 'te_pills_content', locals: { type: @tech }%>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-business" role="tabpanel" aria-labelledby="pills-business-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: 'bus_pills_content', locals: { type: @business }%>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane fade" id="pills-fashion" role="tabpanel" aria-labelledby="pills-fashion-tab">
+      <div class="container">
+        <div class="row mt-3">
+          <%= render partial: 'fas_pills_content', locals: { type: @fashion }%>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

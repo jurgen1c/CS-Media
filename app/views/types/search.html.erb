@@ -1,0 +1,14 @@
+<h1 class="my-title">Search Results</h1>
+<div class="container-fluid">
+  <% @articles.each do |article|%>
+    <div class="row pt-2">
+      <div class="col-5">
+        <%= image_tag(article.cover, style: 'height: 100%; width: 100%')%>
+      </div>
+      <div class="col-7">
+        <h3 class="my-title"><%= link_to article.title, article %></h3>
+        <p class="my-text"><%= truncate(strip_tags(article.rich_text_body.to_s), length: 150) %></p>
+      </div>
+    </div>
+  <%end%>
+</div>

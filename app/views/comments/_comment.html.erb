@@ -1,0 +1,15 @@
+<div class="row ml-5 my-2 p-1">
+  <div class="d-flex my-background my-2">
+    <%= image_tag(comment.user.avatar_thumbnail, class: 'rounded-circle') %>
+    <div class="px-3 my-border rounded">
+      <h3 class="my-subtitle">
+        <b><%= link_to comment.user.name, comment.user, class:'my-subtitle' %> commented:
+      </h3>
+      <p class="my-text">
+        <%= comment.content %>
+      </p>
+      <span> <%= comment.created_at.strftime("%Y/%m/%d") %> </span>
+      <%= com_options(comment) %>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<p id="notice"><%= notice %></p>
+<div class="jumbotron p-0">
+  <%= image_tag(@article.cover, style: 'width: 100%; height:20em') %>
+</div>
+<div class="container my-3">
+  <div class="row">
+    <div class="col-3">
+      <%= image_tag(@article.author.avatar_thumbnail, class: 'rounded-circle') if @article.author.avatar.attached? %>
+    </div>
+    <div class="col-9">
+      <h1 class="my-title">Author: <%= @article.author.name%></h1>
+      <%= link_to 'See Profile', user_path(@article.author.id), class: 'btn btn-outline-primary my-text'%>
+      <%= nu_display(current_user, @article.author) %>
+      <p class="my-text">
+        Bio
+        <br />
+        <%= @article.author.bio %>
+      </p>
+    </div>
+  </div>
+</div>
+<ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Article</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Sources</a>
+  </li>
+  <li class="nav-item" role="presentation">
+    <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab" aria-controls="contact" aria-selected="false">Reviews</a>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active my-background" id="home" role="tabpanel" aria-labelledby="home-tab">
+    <div class="p-3 m-3">
+      <h1 class="my-title"><%= @article.title %></h1>
+      <div class="btn-group" role="group" aria-label="Basic example">
+        <%=art_options(@article)%>       
+        <%= vote_or_dislike_btn(@article) %>
+      </div>
+      <p class="my-text">
+        Votes:
+        <%= @article.votes.count %>
+        <span></span>
+        Views:
+        <%= @article.views %>
+      </p>
+      
+      <hr class="my-color">
+      <p class="my-text"><%= @article.body%></p>
+    </div>
+  </div>
+  <div class="tab-pane fade my-background" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+    <div class="container p-3 m-3">
+      <%@article.sources.each do |source| %>
+        <div class="row">
+          <h2 class="my-title"><%= source.title%></h2>
+          <hr>
+          <p>
+            <%=source.body %>
+          </p>
+        </div>
+      <%end%>
+    </div>
+  </div>
+  <div class="tab-pane fade my-background" id="contact" role="tabpanel" aria-labelledby="contact-tab">
+    <div class="container-fluid p-2">
+      <%= render partial: 'reviews/review', collection: @article.reviews %>
+      <div class="row w-100">
+        <%= form_for(@article.reviews.new, url: article_reviews_path(@article)) do |form| %>
+          <%= form.label :title, class:'my-subtitle'%>
+          <%= form.text_field :title, id: :review_title, class: 'form-control', placeholder: 'Add Title'%>
+          <%= form.label :body, class: 'my-subtitle'%>
+          <%= form.rich_text_area :body, id: :review_body, class: 'form-control', placeholder: 'Add Review Content' %>
+          <%= form.submit 'Add Review', class: 'btn btn-outline-primary my-text my-2' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<div>
+  <h2 class="my-title ml-4 mt-2">Comments</h2>
+  <%= render partial: 'comments/comment', collection: @article.comments %>
+</div>
+<div class="my-width">
+  <%= form_for(@article.comments.new, url: article_comments_path(@article)) do |form| %>
+    <%= form.text_field :content, id: :comment_content, class: 'form-control', placeholder: 'Add new Comment' %>
+    <%= form.submit 'Comment', class: 'btn btn-outline-primary my-text my-2' %>
+  <% end %>
+</div>
+<%= link_to 'Back', articles_path, class: 'btn btn-outline-primary m-3' %>

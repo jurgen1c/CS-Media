@@ -1,0 +1,11 @@
+<div class="nested-fields">
+  <div class="field my-2">
+    <%= f.label :title, class: 'my-text'%><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body, class: 'my-text' %><br />
+    <%= f.rich_text_area :body %>
+  </div>
+  <%= f.hidden_field :_destroy %>
+</div>

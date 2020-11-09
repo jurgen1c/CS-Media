@@ -1,0 +1,93 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ */
+//= require actiontext
+@import "bootstrap/scss/bootstrap";
+
+$bg-color: rgb(68, 65, 65);
+$header-color: rgb(196, 84, 32);
+$text-color: rgb(209, 204, 204);
+
+html {
+  margin: 0;
+}
+
+body {
+  margin: 0;
+  background: $bg-color;
+}
+
+.my-background {
+  background: $bg-color;
+}
+
+.my-color {
+  color: $header-color;
+}
+
+footer {
+  border-top: solid 1px $header-color;
+  background: $bg-color;
+}
+
+.my-border {
+  border: 1px solid $header-color;
+}
+
+a {
+  color: whitesmoke;
+
+  &:hover {
+    color: whitesmoke;
+  }
+}
+
+.navbar-brand {
+  color: $header-color !important;
+}
+
+.half {
+  width: 50%;
+}
+
+.center {
+  margin: 2rem auto;
+}
+
+.my-title {
+  color: $header-color;
+  text-decoration: none;
+  font-size: 2.5rem;
+}
+
+.my-subtitle {
+  color: $header-color;
+  font-size: 1.5rem;
+}
+
+.my-text {
+  color: $text-color;
+}
+
+.my-width {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.nav-pills .nav-link.active {
+  background-color: $header-color !important;
+}
+
+.nav-tabs .nav-link.active {
+  background-color: $header-color !important;
+}

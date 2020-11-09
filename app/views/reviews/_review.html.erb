@@ -1,0 +1,17 @@
+<div class="row ml-5">
+  <div class="col-12 p-2">
+    <h2 class="m-1 my-subtitle">
+      Reviewer:<%= review.reviewer.name %>
+    <h2>
+    </h2>
+    <h2 class="my-title">
+      <%= review.title%>
+    </h2>
+    <p class="m-1">
+      <%= review.body %>
+    </p>
+    <span> <%= review.created_at.strftime("%Y/%m/%d") %> </span>
+    <hr>
+    <%= rev_options(review) %>
+  </div>
+</div>

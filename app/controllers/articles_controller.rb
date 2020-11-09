@@ -1,0 +1,79 @@
+class ArticlesController < ApplicationController
+  before_action :authenticate_user!
+  before_action :set_article, only: %i[show edit update destroy]
+
+  # GET /articles
+  # GET /articles.json
+  def index; end
+
+  # GET /articles/1
+  # GET /articles/1.json
+  def show
+    @article = Article.with_rich_text_body_and_embeds.with_attached_cover.includes(:sources, :comments, :reviews,
+                                                                                   :author, sources: :rich_text_body,
+                                                                                            reviews: :rich_text_body)
+      .find(params[:id])
+    @article.views += 1
+    @article.save
+  end
+
+  # GET /articles/new
+  def new
+    @article = current_user.articles.new
+    @article.sources.build
+  end
+
+  # GET /articles/1/edit
+  def edit; end
+
+  # POST /articles
+  # POST /articles.json
+  def create
+    @article = current_user.articles.build(article_params)
+    respond_to do |format|
+      if @article.save
+        format.html { redirect_to @article, notice: 'Article was successfully created.' }
+        format.json { render :show, status: :created, location: @article }
+      else
+        format.html { render :new }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PATCH/PUT /articles/1
+  # PATCH/PUT /articles/1.json
+  def update
+    respond_to do |format|
+      if @article.update(article_params)
+        format.html { redirect_to @article, notice: 'Article was successfully updated.' }
+        format.json { render :show, status: :ok, location: @article }
+      else
+        format.html { render :edit }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /articles/1
+  # DELETE /articles/1.json
+  def destroy
+    @article.destroy
+    respond_to do |format|
+      format.html { redirect_to articles_url, notice: 'Article was successfully destroyed.' }
+      format.json { head :no_content }
+    end
+  end
+
+  private
+
+  # Use callbacks to share common setup or constraints between actions.
+  def set_article
+    @article = Article.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def article_params
+    params.require(:article).permit(:title, :body, :type_id, :cover, sources_attributes: %i[id title body _destroy])
+  end
+end

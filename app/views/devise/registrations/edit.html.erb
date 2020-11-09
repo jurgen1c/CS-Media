@@ -1,0 +1,76 @@
+<div class="my-background w-100">
+  <div class="center flex-column align-content-center justify-content-center w-25 p-3">
+
+    <h2 class="my-title m-3">Edit <%= resource_name.to_s.humanize %></h2>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+      <%= render "devise/shared/error_messages", resource: resource %>
+
+      <div class="field">
+        <%= f.label :name, class: 'my-text' %><br />
+        <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+      </div>
+      
+      <div class="field">
+        <%= f.label :username, class: 'my-text' %><br />
+        <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+      </div>
+
+      <div class="field">
+        <% if resource.avatar.attached? %>
+          <%= image_tag(resource.avatar_thumbnail)%>
+        <%else %>
+          <%= image_tag("/assets/default_profile.jpg", style: 'width: 4rem; height: 4rem', class: 'my-2 rounded-circle')%>
+        <%end%>
+      </div>
+
+      <div class="field">
+        <%= f.label :avatar, class: 'my-text' %><br />
+        <%= f.file_field :avatar %>
+      </div>
+
+      <div class="field">
+        <%= f.label :bio, class: 'my-text' %><br />
+        <%= f.text_area :bio %>
+      </div>
+
+      <div class="field">
+        <%= f.label :email, class: 'my-text' %><br />
+        <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      </div>
+
+      <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+        <div class="my-title">Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+      <% end %>
+
+      <div class="field">
+        <%= f.label :password, class: 'my-text' %> <i>(leave blank if you don't want to change it)</i><br />
+        <%= f.password_field :password, autocomplete: "new-password" %>
+        <% if @minimum_password_length %>
+          <br />
+          <em class="my-text"><%= @minimum_password_length %> characters minimum</em>
+        <% end %>
+      </div>
+
+      <div class="field">
+        <%= f.label :password_confirmation, class: 'my-text' %><br />
+        <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+      </div>
+
+      <div class="field">
+        <%= f.label :current_password, class: 'my-text' %> <i class="my-text">(we need your current password to confirm your changes)</i><br />
+        <%= f.password_field :current_password, autocomplete: "current-password" %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Update", class: 'btn btn-outline-primary' %>
+      </div>
+    <% end %>
+
+    <h3 class="my-title">Cancel my account</h3>
+
+    <p>Unhappy? <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: 'btn btn-outline-danger' %></p>
+
+    <%= link_to "Back", :back, class: 'btn btn-outline-primary' %>
+  </div>
+</div>
