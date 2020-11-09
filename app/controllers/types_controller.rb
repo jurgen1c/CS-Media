@@ -4,19 +4,20 @@ class TypesController < ApplicationController
   def index
     @types = Type.includes(background_attachment: :blob).all
     @type1 = @types.first
-    @popular = Vote.popular.includes(:article, article: [:rich_text_body, {cover_attachment: :blob}])
-    @sports = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(1)
-    @entertainment = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(2)
-    @travel = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(7)
-    @politics = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(4)
-    @tech = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(3)
-    @business = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(5)
-    @fashion = Type.includes(:articles, articles: [:rich_text_body, cover_attachment: :blob]).find(6)
+    @popular = Vote.popular.includes(:article, article: [:rich_text_body, { cover_attachment: :blob }])
+    @sports = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(1)
+    @entertainment = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(2)
+    @travel = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(7)
+    @politics = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(4)
+    @tech = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(3)
+    @business = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(5)
+    @fashion = Type.includes(:articles, articles: [:rich_text_body, { cover_attachment: :blob }]).find(6)
   end
 
   def show
     @count = 1
-    @type = Type.includes(:articles, articles: [:votes, {cover_attachment: :blob}, :rich_text_body, :author]).find(params[:id])
+    @type = Type.includes(:articles, articles: [:votes, { cover_attachment: :blob },
+                                                :rich_text_body, :author]).find(params[:id])
   end
 
   def search

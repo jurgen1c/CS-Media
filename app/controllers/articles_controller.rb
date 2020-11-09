@@ -4,14 +4,15 @@ class ArticlesController < ApplicationController
 
   # GET /articles
   # GET /articles.json
-  def index
-
-  end
+  def index; end
 
   # GET /articles/1
   # GET /articles/1.json
   def show
-    @article = Article.with_rich_text_body_and_embeds.with_attached_cover.includes(:sources, :comments, :reviews, :author, sources: :rich_text_body, reviews: :rich_text_body).find(params[:id])
+    @article = Article.with_rich_text_body_and_embeds.with_attached_cover.includes(:sources, :comments, :reviews,
+                                                                                   :author, sources: :rich_text_body,
+                                                                                            reviews: :rich_text_body)
+      .find(params[:id])
     @article.views += 1
     @article.save
   end
