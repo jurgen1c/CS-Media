@@ -6,7 +6,7 @@ class CommentsController < ApplicationController
 
     if @comment.save
       @notifican = Notification.create(recipient: @comment.article.author,
-                                       actor: current_user, action: 'commentedd', notifiable: @comment)
+                                       actor: current_user, action: 'commented', notifiable: @comment)
       flash[:success] = 'Comment was successfully created.'
     else
       flash[:error] = @comment.errors.full_messages.join('. ').to_s
